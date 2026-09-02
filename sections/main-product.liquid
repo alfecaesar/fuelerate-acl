@@ -76,8 +76,8 @@
   <product-component view-event-payload="{{ product | standard_event_data: 'view', context: 'page' | escape }}">
     <div class="tw-max-w-[1440px] tw-w-[100%] tw-mx-auto">
       <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %} tw-px-[20px] tw-py-[20px] md:tw-py-0">
-        <div class="grid__item product__media-wrapper">
-          {% render 'product-media-gallery', variant_images: variant_images %}
+        <div class="tw-bg-[#F4F3EE] tw-pb-[150px] grid__item product__media-wrapper {% if section.settings.media_size == "custom" %} !tw-max-w-[690px] !tw-w-[100%] {% endif %}">
+          {% render 'product-media-gallery', variant_images: variant_images, media_width_size: section.settings.media_size %}
         </div> 
         <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           <section
