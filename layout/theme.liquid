@@ -84,10 +84,6 @@
           font-style: normal;
           font-display: swap;
         }
-
-        :root {
-          --font-heading-family: 'Recoleta', serif;
-        }
       {%- else -%}
         {{ settings.type_header_font | font_face: font_display: 'swap' }}
       {%- endif -%}
@@ -143,7 +139,11 @@
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        {%- if settings.use_custom_font_recoleta -%}
+          --font-heading-family: 'Recoleta', serif;
+        {%- else -%}
+          --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        {%- endif -%}
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
