@@ -11,6 +11,7 @@
   "current": {
     "logo_width": 90,
     "type_header_font": "assistant_n4",
+    "use_custom_font_recoleta": true,
     "heading_scale": 100,
     "type_body_font": "figtree_n4",
     "body_scale": 100,
