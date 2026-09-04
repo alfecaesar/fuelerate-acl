@@ -54,32 +54,17 @@
             "list_metafield": "custom.video_testimonials_list"
           }
         },
-        "tab_J4TjLy": {
-          "type": "tab",
+        "tabs_QpwYT7": {
+          "type": "tabs",
           "settings": {
-            "label": "Description",
-            "content": "{{ product.description }}"
-          }
-        },
-        "tab_aVJg9j": {
-          "type": "tab",
-          "settings": {
-            "label": "Who is it for?",
-            "content": "{{ product.metafields.custom.who_is_it_for | metafield_tag }}"
-          }
-        },
-        "tab_4YyYe3": {
-          "type": "tab",
-          "settings": {
-            "label": "Shipping and returns",
-            "content": "{{ product.metafields.custom.shipping_and_returns | metafield_tag }}"
-          }
-        },
-        "tab_XJGHd4": {
-          "type": "tab",
-          "settings": {
-            "label": "Care Instructions",
-            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}"
+            "label_1": "Description",
+            "content_1": "{{ product.description }}",
+            "label_2": "Who is it for?",
+            "content_2": "{{ product.metafields.custom.who_is_it_for | metafield_tag }}",
+            "label_3": "Shipping and returns",
+            "content_3": "{{ product.metafields.custom.shipping_and_returns | metafield_tag }}",
+            "label_4": "Care Instructions",
+            "content_4": "{{ product.metafields.custom.care_instructions | metafield_tag }}"
           }
         }
       },
@@ -91,10 +76,7 @@
         "key_benefits_9bjqFH",
         "buy_buttons",
         "video_testimonials_eJDy6H",
-        "tab_J4TjLy",
-        "tab_aVJg9j",
-        "tab_4YyYe3",
-        "tab_XJGHd4"
+        "tabs_QpwYT7"
       ],
       "settings": {
         "enable_sticky_info": true,
