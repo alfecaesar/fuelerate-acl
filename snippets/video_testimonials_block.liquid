@@ -1,0 +1,71 @@
+{% if block.settings.label != blank and block.settings.list_metafield != blank %}
+    <div class="tw-flex tw-flex-col tw-gap-[20px] tw-py-[30px] tw-border-0 tw-border-t-[1px] tw-border-b-[1px] tw-border-[#000] tw-border-solid ">
+        <h3 class="font-heading-family tw-text-[24px] tw-font-normal tw-leading-[120%] tw-text-[#31331E] tw-my-0">{{ block.settings.label }}</h3>
+        <ul class="tw-flex tw-gap-[28px] tw-p-0 tw-m-0 tw-max-w-[582px] tw-w-[100%] tw-justify-between">
+            {% assign item_data = block.settings.list_metafield | remove: 'custom.' %}
+            {% for kb in product.metafields.custom[item_data].value %}
+            <li class="tw-list-none">
+                <button class="tw-cursor-pointer tw-p-0 tw-flex tw-flex-col tw-gap-[5px] tw-border-[1.35px] tw-border-[#000000] tw-rounded-[100%] tw-border-solid" onclick="openVideoModal(this)" data-video="{{ kb.video | file_url }}">
+                    {{ kb.photo | image_url: width: 85.7 | image_tag: class: 'tw-block tw-w-[85.7px] tw-h-[85.7px] tw-border-[2px] tw-border-[#FFFFFF] tw-rounded-[100%] tw-border-solid' }}
+                </button>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+<dialog
+  id="video-modal"
+  class="tw-w-screen tw-h-screen tw-max-w-none tw-max-h-none tw-m-0 tw-p-0 tw-border-0 tw-bg-transparent"
+>
+  <div class="tw-w-full tw-h-full tw-flex tw-items-center tw-justify-center tw-bg-black/80" onclick="if(event.target === this) closeVideoModal()">
+    <div class="tw-relative tw-max-w-[90vw] tw-max-h-[90vh]">
+      
+      <button
+        type="button"
+        class="tw-absolute tw-right-[10px] tw-top-[10px] tw-z-[2] tw-w-[40px] tw-h-[40px] tw-rounded-full tw-bg-white tw-border-0 tw-cursor-pointer"
+        onclick="closeVideoModal()"
+      >
+        ×
+      </button>
+
+      <video
+        id="video-modal-player"
+        class="tw-block tw-max-w-[90vw] tw-max-h-[90vh]"
+        controls
+        playsinline
+      ></video>
+
+    </div>
+  </div>
+</dialog>
+    <script>
+    function openVideoModal(button) {
+        const videoUrl = button.dataset.video;
+        const modal = document.getElementById('video-modal');
+        const video = document.getElementById('video-modal-player');
+
+        if (!videoUrl) return;
+
+        video.src = videoUrl;
+        modal.showModal();
+        video.play();
+    }
+
+    function closeVideoModal() {
+        const modal = document.getElementById('video-modal');
+        const video = document.getElementById('video-modal-player');
+
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
+
+        modal.close();
+    }
+
+    document.getElementById('video-modal').addEventListener('click', function (event) {
+        if (event.target === this) {
+        closeVideoModal();
+        }
+    });
+    </script>
+{% endif %}

@@ -1,2 +1,53 @@
 @tailwind components;
 @tailwind utilities;
+
+.font-body-family{
+    font-family: var(--font-body-family);
+}
+
+.font-heading-family{
+    font-family: var(--font-heading-family);
+}
+
+.custom-body-style *{
+    @apply tw-tracking-normal;
+}
+
+.product__tax{
+    @apply tw-hidden;
+}
+
+.price-item--regular{
+    @apply !tw-no-underline !tw-text-[#FF3030B5] !tw-text-[36px] !tw-leading-[120%] !tw-font-normal !tw-m-0;
+}
+
+.price__sale{ 
+    @apply !tw-flex tw-items-center tw-gap-[15px];
+}
+
+.price-item--sale{
+    @apply tw-text-[#31331E] tw-text-[36px] !tw-leading-[120%] !tw-font-normal !tw-m-0;
+}
+
+.price--show-badge{
+    @apply tw-flex tw-items-center tw-gap-[15px];
+}
+
+.price--show-badge .badge,
+.product .price__container{
+    @apply !tw-m-0;
+}
+
+.product-form__buttons .product-form__submit{
+    @apply tw-bg-[#A8CA1B] !tw-border-none tw-rounded-[50px] tw-text-[24px] tw-leading-[120%] tw-text-[#31331E] tw-uppercase !tw-h-[67px] !tw-min-h-[67px] tw-m-0;
+    font-family: var(--font-heading-family);
+}
+
+.product-form__buttons{
+    @apply !tw-max-w-[100%];
+}
+
+.product-form__buttons .product-form__submit:after,
+.product-form__buttons .product-form__submit:before{
+    @apply !tw-border-none !tw-shadow-none tw-w-[100%];
+}

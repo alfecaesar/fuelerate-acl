@@ -94,7 +94,7 @@
         {%- unless product.price_varies == false and product.compare_at_price_varies %}
           <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.regular_price' | t }}</span>
           <span>
-            <s class="price-item price-item--regular">
+            <s class="price-item price-item--regular font-heading-family">
               {% if settings.currency_code_enabled %}
                 {{ compare_at_price | money_with_currency }}
               {% else %}
@@ -104,7 +104,7 @@
           </span>
         {%- endunless -%}
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.price.sale_price' | t }}</span>
-        <span class="price-item price-item--sale price-item--last">
+        <span class="price-item price-item--sale price-item--last font-heading-family">
           {{ money_price }}
         </span>
       </div>
@@ -113,8 +113,15 @@
       {%- endif -%}
     </div>
     {%- if show_badges -%}
-      <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+      {% comment %} <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
         {{ 'products.product.on_sale' | t }}
+      </span> {% endcomment %}
+
+      <span class="badge price__badge-sale tw-bg-[#56814C80] tw-text-[#31331E] tw-text-[16px] tw-py-[5px] tw-px-[15px] tw-rounded-[50px] tw-font-bold">
+        {% assign discount = compare_at_price | minus: price %}
+        {% assign discount_percent = discount | times: 100 | divided_by: compare_at_price %}
+
+        Save {{ discount_percent }}% OFF
       </span>
 
       <span class="badge price__badge-sold-out color-{{ settings.sold_out_badge_color_scheme }}">
