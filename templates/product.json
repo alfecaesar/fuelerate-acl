@@ -19,8 +19,8 @@
         "urgency_live_activity_KWPMma": {
           "type": "urgency__live_activity",
           "settings": {
-            "urgency_text": "",
-            "live_activity_text": ""
+            "urgency_text": "{{ product.metafields.custom.urgency.value }}",
+            "live_activity_text": "{{ product.metafields.custom.live_activity.value }}"
           }
         },
         "summary_4rGpMJ": {
@@ -36,8 +36,8 @@
         "key_benefits_9bjqFH": {
           "type": "key_benefits",
           "settings": {
-            "label": "",
-            "list_metafield": ""
+            "label": "Why you need this?",
+            "list_metafield": "custom.key_benefits_list"
           }
         },
         "buy_buttons": {
@@ -50,8 +50,8 @@
         "video_testimonials_eJDy6H": {
           "type": "video_testimonials",
           "settings": {
-            "label": "",
-            "list_metafield": ""
+            "label": "Real People. Real Healing.",
+            "list_metafield": "custom.video_testimonials_list"
           }
         },
         "tab_J4TjLy": {
