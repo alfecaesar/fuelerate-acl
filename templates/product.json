@@ -12,24 +12,37 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
+        },
+        "urgency_live_activity_KWPMma": {
+          "type": "urgency__live_activity",
+          "settings": {
+            "urgency_text": "",
+            "live_activity_text": ""
+          }
+        },
+        "summary_4rGpMJ": {
+          "type": "summary",
+          "settings": {
+            "text": ""
+          }
         },
         "price": {
           "type": "price",
           "settings": {}
         },
+        "key_benefits_9bjqFH": {
+          "type": "key_benefits",
+          "settings": {
+            "label": "",
+            "list_metafield": ""
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
@@ -37,6 +50,7 @@
         },
         "quantity_selector": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "buy_buttons": {
@@ -46,26 +60,70 @@
             "show_gift_card_recipient": true
           }
         },
+        "video_testimonials_eJDy6H": {
+          "type": "video_testimonials",
+          "settings": {
+            "label": "",
+            "list_metafield": ""
+          }
+        },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {}
         },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
+          }
+        },
+        "tab_J4TjLy": {
+          "type": "tab",
+          "settings": {
+            "label": "Description",
+            "content": "{{ product.description }}"
+          }
+        },
+        "tab_aVJg9j": {
+          "type": "tab",
+          "settings": {
+            "label": "Who is it for?",
+            "content": "{{ product.metafields.custom.who_is_it_for | metafield_tag }}"
+          }
+        },
+        "tab_4YyYe3": {
+          "type": "tab",
+          "settings": {
+            "label": "Shipping and returns",
+            "content": "{{ product.metafields.custom.shipping_and_returns | metafield_tag }}"
+          }
+        },
+        "tab_XJGHd4": {
+          "type": "tab",
+          "settings": {
+            "label": "Care Instructions",
+            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}"
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
+        "urgency_live_activity_KWPMma",
+        "summary_4rGpMJ",
         "price",
+        "key_benefits_9bjqFH",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "video_testimonials_eJDy6H",
         "description",
-        "share"
+        "share",
+        "tab_J4TjLy",
+        "tab_aVJg9j",
+        "tab_4YyYe3",
+        "tab_XJGHd4"
       ],
       "settings": {
         "enable_sticky_info": true,
