@@ -40,19 +40,6 @@
             "list_metafield": ""
           }
         },
-        "variant_picker": {
-          "type": "variant_picker",
-          "disabled": true,
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
-          }
-        },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "disabled": true,
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -65,18 +52,6 @@
           "settings": {
             "label": "",
             "list_metafield": ""
-          }
-        },
-        "description": {
-          "type": "description",
-          "disabled": true,
-          "settings": {}
-        },
-        "share": {
-          "type": "share",
-          "disabled": true,
-          "settings": {
-            "share_label": "Share"
           }
         },
         "tab_J4TjLy": {
@@ -114,12 +89,8 @@
         "summary_4rGpMJ",
         "price",
         "key_benefits_9bjqFH",
-        "variant_picker",
-        "quantity_selector",
         "buy_buttons",
         "video_testimonials_eJDy6H",
-        "description",
-        "share",
         "tab_J4TjLy",
         "tab_aVJg9j",
         "tab_4YyYe3",
