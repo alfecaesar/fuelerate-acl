@@ -1,31 +1,37 @@
-<div id="benefits-{{ section.id }}" class="benefits-tab-slider">
-  <style>
+<style>
+    #benefits-{{ section.id }}{
+        background-color: {{ section.settings.section_bg }};
+    }
     #benefits-{{ section.id }} summary::-webkit-details-marker { display: none; }
     #benefits-{{ section.id }} summary { list-style: none; }
     #benefits-{{ section.id }} .benefit-slide {
       transition: opacity 0.35s ease;
     }
   </style>
+<div id="benefits-{{ section.id }}" class="benefits-tab-slider">
+  <div class="tw-mx-auto tw-max-w-[1280px] tw-px-6 tw-py-12 md:tw-py-16">
 
-  <div class="tw-mx-auto tw-max-w-[1280px] tw-px-6 tw-py-12 md:tw-py-16" style="background-color: {{ section.settings.section_bg }};">
-
-    <h2 class="tw-font-serif tw-text-4xl md:tw-text-5xl tw-leading-tight tw-mb-4" style="color: {{ section.settings.heading_color }};">
-      {{ section.settings.heading }}
-    </h2>
-
-    {% comment %} desktop copy {% endcomment %}
-    <p class="tw-hidden md:tw-block tw-max-w-2xl tw-text-sm tw-mb-8" style="color: {{ section.settings.body_color }};">
-      {{ section.settings.desktop_subheading }}
-    </p>
-
-    {% comment %} mobile copy {% endcomment %}
-    <p class="tw-block md:tw-hidden tw-text-base tw-mb-6" style="color: {{ section.settings.body_color }};">
-      {{ section.settings.mobile_subheading }}
-    </p>
+    {% comment %} mobile only heading + subheading {% endcomment %}
+    <div class="tw-block md:tw-hidden">
+      <h2 class="tw-font-serif tw-text-4xl tw-leading-tight tw-mb-4 tw-text-center" style="color: {{ section.settings.heading_color }};">
+        {{ section.settings.heading }}
+      </h2>
+      <p class="tw-text-base tw-mb-6 tw-text-center" style="color: {{ section.settings.body_color }};">
+        {{ section.settings.mobile_subheading }}
+      </p>
+    </div>
 
     <div class="md:tw-grid md:tw-grid-cols-12 md:tw-gap-8">
 
+      {% comment %} LEFT column (desktop only): heading + subheading + pills, stacked {% endcomment %}
       <div class="tw-hidden md:tw-flex md:tw-col-span-5 tw-flex-col tw-gap-3">
+        <h2 class="tw-font-serif tw-text-4xl lg:tw-text-5xl tw-leading-tight tw-mb-2" style="color: {{ section.settings.heading_color }};">
+          {{ section.settings.heading }}
+        </h2>
+        <p class="tw-max-w-md tw-text-sm tw-mb-4" style="color: {{ section.settings.body_color }};">
+          {{ section.settings.desktop_subheading }}
+        </p>
+
         {% for block in section.blocks %}
           <button
             type="button"
@@ -43,14 +49,15 @@
         {% endfor %}
       </div>
 
-      <div class="tw-hidden md:tw-flex md:tw-col-span-7 tw-items-stretch tw-relative tw-h-[480px]">
+      {% comment %} RIGHT column: slider — stretches to match left column's full height {% endcomment %}
+      <div class="tw-hidden md:tw-grid md:tw-col-span-7 tw-relative">
         {% for block in section.blocks %}
           <div
             data-slide
             data-index="{{ forloop.index0 }}"
-            class="benefit-slide tw-absolute tw-inset-0 tw-flex {% unless forloop.first %}tw-opacity-0 tw-pointer-events-none{% endunless %}"
+            class="benefit-slide tw-col-start-1 tw-row-start-1 tw-flex tw-items-stretch {% unless forloop.first %}tw-opacity-0 tw-pointer-events-none{% endunless %}"
           >
-            <div class="tw-w-[38%] tw-shrink-0 tw-overflow-hidden tw-rounded-l-2xl">
+            <div class="tw-w-[38%] tw-shrink-0 tw-self-end tw-aspect-[4/5] tw-overflow-hidden tw-rounded-l-2xl">
               {% if block.settings.image != blank %}
                 <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.heading | escape }}" class="tw-h-full tw-w-full tw-object-cover">
               {% else %}
@@ -58,7 +65,7 @@
               {% endif %}
             </div>
 
-            <div class="tw-flex-1 tw-rounded-r-2xl tw-p-8 lg:tw-p-10" style="background-color: {{ section.settings.card_bg }};">
+            <div class="tw-flex-1 tw-self-stretch tw-rounded-r-2xl tw-p-8 lg:tw-p-10" style="background-color: {{ section.settings.card_bg }};">
               <h3 class="tw-font-serif tw-text-2xl lg:tw-text-3xl tw-leading-snug tw-mb-5" style="color: {{ section.settings.card_heading_color }};">
                 {{ block.settings.heading }}
               </h3>
@@ -68,18 +75,19 @@
               </p>
 
               <ul class="tw-space-y-1 tw-text-sm tw-mb-6 tw-list-disc tw-pl-4" style="color: {{ section.settings.card_text_color }};">
-                {% for line in block.settings.bullets %}
-                  {% assign trimmed_line = line | strip %}
-                  {% if trimmed_line != blank %}
-                    <li>{{ trimmed_line }}</li>
-                  {% endif %}
+                {% capture linebr %}{{ block.settings.bullets | newline_to_br }}{% endcapture %}
+                {% assign bullets = linebr | split: '<br />' %}
+                {% for line in bullets %}
+                    {% assign line = line | strip %}
+                    {% unless line == blank %}
+                    <li>{{ line }}</li>
+                    {% endunless %}
                 {% endfor %}
               </ul>
 
               {% if block.settings.cta_label != blank %}
                 <div class="tw-flex tw-flex-col tw-items-center tw-text-center">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.card_text_color }}" stroke-width="1.5" class="tw-mb-2 tw-rotate-90">
-                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
                     <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
                     <path d="M2 2l7.586 7.586"></path>
                     <circle cx="11" cy="11" r="2"></circle>
@@ -105,6 +113,7 @@
         </button>
       </div>
 
+      {% comment %} MOBILE accordion {% endcomment %}
       <div class="tw-block md:tw-hidden tw-space-y-3">
         {% for block in section.blocks %}
           <details class="benefit-accordion tw-group tw-rounded-2xl tw-overflow-hidden" {% if forloop.first %}open{% endif %}>
@@ -129,11 +138,13 @@
               </p>
 
               <ul class="tw-space-y-1 tw-text-sm tw-mb-5 tw-list-disc tw-pl-4" style="color: {{ section.settings.card_text_color }};">
-                {% for line in block.settings.bullets %}
-                  {% assign trimmed_line = line | strip %}
-                  {% if trimmed_line != blank %}
-                    <li>{{ trimmed_line }}</li>
-                  {% endif %}
+                {% capture linebr %}{{ block.settings.bullets | newline_to_br }}{% endcapture %}
+                {% assign bullets = linebr | split: '<br />' %}
+                {% for line in bullets %}
+                    {% assign line = line | strip %}
+                    {% unless line == blank %}
+                    <li>{{ line }}</li>
+                    {% endunless %}
                 {% endfor %}
               </ul>
 
