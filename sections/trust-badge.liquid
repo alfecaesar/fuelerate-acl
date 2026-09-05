@@ -1,0 +1,117 @@
+<div id="trust-badges-bar-{{ section.id }}">
+  <div
+    class="tw-hidden md:tw-flex tw-w-full tw-items-center tw-justify-center tw-flex-wrap tw-gap-x-8 lg:tw-gap-x-12 tw-gap-y-3 tw-py-5 tw-px-6"
+    style="background-color: {{ section.settings.bg_color }};"
+  >
+    {% for block in section.blocks %}
+      {%- liquid
+        assign icon_size = block.settings.icon_size
+      -%}
+      <div class="tw-flex tw-items-center tw-gap-3" {{ block.shopify_attributes }}>
+        {% if block.settings.icon %}
+          <img
+            src="{{ block.settings.icon | image_url: width: 96 }}"
+            alt="{{ block.settings.icon.alt | default: block.settings.text | escape }}"
+            width="{{ icon_size }}"
+            height="{{ icon_size }}"
+            loading="lazy"
+            class="tw-shrink-0 tw-object-contain"
+            style="width: {{ icon_size }}px; height: {{ icon_size }}px; filter: {{ section.settings.icon_filter }};"
+          >
+        {% endif %}
+        <span
+          class="tw-whitespace-nowrap tw-font-normal tw-tracking-wide"
+          style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.text_size }}px;"
+        >
+          {{ block.settings.text }}
+        </span>
+      </div>
+
+      {% unless forloop.last %}
+        <div class="tw-hidden lg:tw-block tw-h-5 tw-w-px" style="background-color: {{ section.settings.divider_color }};"></div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trust Badges Bar",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#2A2E1F"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#F5F5F0"
+    },
+    {
+      "type": "color",
+      "id": "divider_color",
+      "label": "Divider color",
+      "default": "#5A5E4F"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size (px)",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 15
+    },
+    {
+      "type": "text",
+      "id": "icon_filter",
+      "label": "Icon color filter (CSS filter value)",
+      "info": "Use to recolor icons if they are uploaded as black/dark SVGs or PNGs, e.g. invert(1)",
+      "default": "invert(1)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "range",
+          "id": "icon_size",
+          "label": "Icon size (px)",
+          "min": 16,
+          "max": 48,
+          "step": 1,
+          "default": 24
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "90-Day Results-Backed Guarantee"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Trust Badges Bar",
+      "blocks": [
+        { "type": "badge", "settings": { "text": "90-Day Results-Backed Guarantee" } },
+        { "type": "badge", "settings": { "text": "Designed in USA" } },
+        { "type": "badge", "settings": { "text": "Ships in 2–6 Days" } },
+        { "type": "badge", "settings": { "text": "A Tree Planted per Order" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

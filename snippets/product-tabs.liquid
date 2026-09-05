@@ -1,0 +1,153 @@
+<div class="tw-w-full product-tabs font-body-family">
+
+  <!-- Desktop / tablet tabs (md and above) — UNCHANGED, just wrapped to hide on mobile -->
+  <div class="tw-hidden md:tw-block">
+
+    <!-- Tabs: 4 equal-width columns, labels centered in each column -->
+    <div class="tw-relative">
+      <div class="tw-flex tw-pt-[20px] tw-pb-[15px]" id="tab-list">
+        <button data-tab="description" data-index="0"
+          class="tab-btn tw-flex-1 tw-bg-transparent tw-border-0 tw-shadow-none tw-cursor-pointer tw-text-[16px] tw-text-[#31331E]/50 !tw-font-normal tw-leading-[111%] tw-px-0">{{ block.settings.label_1 }}</button>
+        <button data-tab="who" data-index="1"
+          class="tab-btn tw-flex-1 tw-bg-transparent tw-border-0 tw-shadow-none tw-cursor-pointer tw-text-[16px] tw-text-[#31331E]/50 !tw-font-normal tw-leading-[111%] tw-px-0">{{ block.settings.label_2 }}</button>
+        <button data-tab="shipping" data-index="2"
+          class="tab-btn tw-flex-1 tw-bg-transparent tw-border-0 tw-shadow-none tw-cursor-pointer tw-text-[16px] tw-text-[#31331E]/50 !tw-font-normal tw-leading-[111%] tw-px-0">{{ block.settings.label_3 }}</button>
+        <button data-tab="care" data-index="3"
+          class="tab-btn tw-flex-1 tw-bg-transparent tw-border-0 tw-shadow-none tw-cursor-pointer tw-text-[16px] tw-text-[#31331E]/50 !tw-font-normal tw-leading-[111%] tw-px-0">{{ block.settings.label_4 }}</button>
+      </div>
+    </div>
+
+    <!-- Progress / underline bar -->
+    <div class="tw-relative tw-h-[10px] tw-mb-[20px]">
+      <div class="tw-absolute tw-left-0 tw-right-0 tw-top-1/2 -tw-translate-y-1/2 tw-h-[2px] tw-bg-black tw-rounded-full"></div>
+      <span class="tw-absolute tw-top-1/2 tw-w-[5px] tw-h-[5px] tw-rounded-full tw-bg-black" style="left:25%; transform:translate(-50%,-50%);"></span>
+      <span class="tw-absolute tw-top-1/2 tw-w-[5px] tw-h-[5px] tw-rounded-full tw-bg-black" style="left:50%; transform:translate(-50%,-50%);"></span>
+      <span class="tw-absolute tw-top-1/2 tw-w-[5px] tw-h-[5px] tw-rounded-full tw-bg-black" style="left:75%; transform:translate(-50%,-50%);"></span>
+      <span class="tw-absolute tw-top-1/2 tw-w-[5px] tw-h-[5px] tw-rounded-full tw-bg-black" style="left:100%; transform:translate(-50%,-50%);"></span>
+      <div id="progress-bar" class="tw-absolute tw-left-0 tw-top-1/2 -tw-translate-y-1/2 tw-h-[13px] tw-bg-black tw-rounded-full tw-transition-all tw-duration-300" style="width:25%;"></div>
+    </div>
+
+    <!-- Panels -->
+    <div id="panel-description" class="tab-panel tw-space-y-4">
+      {{ block.settings.content_1 }}
+    </div>
+    <div id="panel-who" class="tab-panel tw-hidden tw-space-y-4">
+      {{ block.settings.content_2 }}
+    </div>
+    <div id="panel-shipping" class="tab-panel tw-hidden tw-space-y-4">
+      {{ block.settings.content_3 }}
+    </div>
+    <div id="panel-care" class="tab-panel tw-hidden tw-space-y-4">
+      {{ block.settings.content_4 }}
+    </div>
+
+  </div>
+
+  <!-- Mobile accordion (below md) — NEW -->
+  <div class="tw-block md:tw-hidden mobile-accordion">
+
+    <div class="accordion-item tw-border-t tw-border-black">
+      <button type="button"
+        class="accordion-toggle tw-w-full tw-flex tw-items-center tw-justify-between tw-bg-transparent tw-border-0 tw-shadow-none tw-cursor-pointer tw-text-left tw-py-[16px]"
+        data-panel="mobile-panel-description" aria-expanded="true">
+        <span class="tw-text-[16px] tw-text-black">{{ block.settings.label_1 }}</span>
+        <span class="accordion-icon tw-text-black tw-text-[20px] tw-leading-none tw-font-bold">&minus;</span>
+      </button>
+      <div id="mobile-panel-description" class="accordion-panel tw-pb-[16px] tw-space-y-4">
+        {{ block.settings.content_1 }}
+      </div>
+    </div>
+
+    <div class="accordion-item tw-border-t tw-border-black">
+      <button type="button"
+        class="accordion-toggle tw-w-full tw-flex tw-items-center tw-justify-between tw-bg-transparent tw-border-0 tw-shadow-none tw-cursor-pointer tw-text-left tw-py-[16px]"
+        data-panel="mobile-panel-who" aria-expanded="false">
+        <span class="tw-text-[16px] tw-text-[#31331E]/50">{{ block.settings.label_2 }}</span>
+        <span class="accordion-icon tw-text-black tw-text-[20px] tw-leading-none tw-font-bold">+</span>
+      </button>
+      <div id="mobile-panel-who" class="accordion-panel tw-hidden tw-pb-[16px] tw-space-y-4">
+        {{ block.settings.content_2 }}
+      </div>
+    </div>
+
+    <div class="accordion-item tw-border-t tw-border-black">
+      <button type="button"
+        class="accordion-toggle tw-w-full tw-flex tw-items-center tw-justify-between tw-bg-transparent tw-border-0 tw-shadow-none tw-cursor-pointer tw-text-left tw-py-[16px]"
+        data-panel="mobile-panel-shipping" aria-expanded="false">
+        <span class="tw-text-[16px] tw-text-[#31331E]/50">{{ block.settings.label_3 }}</span>
+        <span class="accordion-icon tw-text-black tw-text-[20px] tw-leading-none tw-font-bold">+</span>
+      </button>
+      <div id="mobile-panel-shipping" class="accordion-panel tw-hidden tw-pb-[16px] tw-space-y-4">
+        {{ block.settings.content_3 }}
+      </div>
+    </div>
+
+    <div class="accordion-item tw-border-t tw-border-b tw-border-black">
+      <button type="button"
+        class="accordion-toggle tw-w-full tw-flex tw-items-center tw-justify-between tw-bg-transparent tw-border-0 tw-shadow-none tw-cursor-pointer tw-text-left tw-py-[16px]"
+        data-panel="mobile-panel-care" aria-expanded="false">
+        <span class="tw-text-[16px] tw-text-[#31331E]/50">{{ block.settings.label_4 }}</span>
+        <span class="accordion-icon tw-text-black tw-text-[20px] tw-leading-none tw-font-bold">+</span>
+      </button>
+      <div id="mobile-panel-care" class="accordion-panel tw-hidden tw-pb-[16px] tw-space-y-4">
+        {{ block.settings.content_4 }}
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+  // ---- Desktop tabs (md and above) — UNCHANGED ----
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-panel');
+  const progressBar = document.getElementById('progress-bar');
+  const totalTabs = tabs.length;
+
+  function activateTab(tabName) {
+    let activeIndex = 0;
+
+    tabs.forEach(btn => {
+      const isActive = btn.dataset.tab === tabName;
+      if (isActive) activeIndex = Number(btn.dataset.index);
+      btn.classList.toggle('tw-text-black', isActive);
+      btn.classList.toggle('tw-font-semibold', isActive);
+      btn.classList.toggle('tw-text-gray-400', !isActive);
+    });
+
+    panels.forEach(panel => {
+      panel.classList.toggle('tw-hidden', panel.id !== `panel-${tabName}`);
+    });
+
+    const pct = ((activeIndex + 1) / totalTabs) * 100;
+    progressBar.style.width = pct + '%';
+  }
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+  });
+
+  activateTab('description');
+
+  // ---- Mobile accordion — NEW ----
+  const accordionToggles = document.querySelectorAll('.accordion-toggle');
+
+  function setAccordionState(toggle, isOpen) {
+    const panel = document.getElementById(toggle.dataset.panel);
+    const icon = toggle.querySelector('.accordion-icon');
+    const label = toggle.querySelector('span');
+
+    toggle.setAttribute('aria-expanded', isOpen);
+    panel.classList.toggle('tw-hidden', !isOpen);
+    icon.textContent = isOpen ? '\u2212' : '+';
+    label.classList.toggle('tw-text-black', isOpen);
+    label.classList.toggle('tw-text-[#31331E]/50', !isOpen);
+  }
+
+  accordionToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      accordionToggles.forEach(t => setAccordionState(t, t === toggle));
+    });
+  });
+</script>

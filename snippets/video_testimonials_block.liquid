@@ -1,16 +1,18 @@
 {% if block.settings.label != blank and block.settings.list_metafield != blank %}
     <div class="tw-flex tw-flex-col tw-gap-[20px] tw-py-[30px] tw-border-0 tw-border-t-[1px] tw-border-b-[1px] tw-border-[#000] tw-border-solid ">
         <h3 class="font-heading-family tw-text-[24px] tw-font-normal tw-leading-[120%] tw-text-[#31331E] tw-my-0">{{ block.settings.label }}</h3>
-        <ul class="tw-flex tw-gap-[28px] tw-p-0 tw-m-0 tw-max-w-[582px] tw-w-[100%] tw-justify-between">
-            {% assign item_data = block.settings.list_metafield | remove: 'custom.' %}
-            {% for kb in product.metafields.custom[item_data].value %}
-            <li class="tw-list-none">
-                <button class="tw-cursor-pointer tw-p-0 tw-flex tw-flex-col tw-gap-[5px] tw-border-[1.35px] tw-border-[#000000] tw-rounded-[100%] tw-border-solid" onclick="openVideoModal(this)" data-video="{{ kb.video | file_url }}">
-                    {{ kb.photo | image_url: width: 85.7 | image_tag: class: 'tw-block tw-w-[85.7px] tw-h-[85.7px] tw-border-[2px] tw-border-[#FFFFFF] tw-rounded-[100%] tw-border-solid' }}
-                </button>
-            </li>
-            {% endfor %}
-        </ul>
+        <div class="tw-w-full tw-overflow-x-auto">
+            <ul class="tw-flex tw-flex-nowrap tw-gap-[28px] tw-p-0 tw-m-0 tw-max-w-[582px] tw-w-[100%] tw-justify-between">
+                {% assign item_data = block.settings.list_metafield | remove: 'custom.' %}
+                {% for kb in product.metafields.custom[item_data].value %}
+                <li class="tw-list-none">
+                    <button class="tw-cursor-pointer tw-p-0 tw-flex tw-flex-col tw-gap-[5px] tw-border-[1.35px] tw-border-[#000000] tw-rounded-[100%] tw-border-solid" onclick="openVideoModal(this)" data-video="{{ kb.video | file_url }}">
+                        {{ kb.photo | image_url: width: 85.7 | image_tag: class: 'tw-block tw-w-[85.7px] tw-h-[85.7px] tw-border-[2px] tw-border-[#FFFFFF] tw-rounded-[100%] tw-border-solid' }}
+                    </button>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 
 <dialog
