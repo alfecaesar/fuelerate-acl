@@ -58,13 +58,13 @@
           "type": "tabs",
           "settings": {
             "label_1": "Description",
-            "content_1": "{{ product.description }}",
+            "content_1": "<p>{{ product.description }}</p>",
             "label_2": "Who is it for?",
-            "content_2": "{{ product.metafields.custom.who_is_it_for | metafield_tag }}",
+            "content_2": "<p>{{ product.metafields.custom.who_is_it_for | metafield_tag }}</p>",
             "label_3": "Shipping and returns",
-            "content_3": "{{ product.metafields.custom.shipping_and_returns | metafield_tag }}",
+            "content_3": "<p>{{ product.metafields.custom.shipping_and_returns | metafield_tag }}</p>",
             "label_4": "Care Instructions",
-            "content_4": "{{ product.metafields.custom.care_instructions | metafield_tag }}"
+            "content_4": "<p>{{ product.metafields.custom.care_instructions | metafield_tag }}</p>"
           }
         }
       },
@@ -92,6 +92,53 @@
         "enable_video_looping": true,
         "padding_top": 0,
         "padding_bottom": 12
+      }
+    },
+    "trust_badge_xzmedd": {
+      "type": "trust-badge",
+      "blocks": {
+        "badge_mJ9G3H": {
+          "type": "badge",
+          "settings": {
+            "icon_size": 24,
+            "text": "90-Day Results-Backed Guarantee"
+          }
+        },
+        "badge_68waTL": {
+          "type": "badge",
+          "settings": {
+            "icon_size": 24,
+            "text": "Designed in USA"
+          }
+        },
+        "badge_J4tyLW": {
+          "type": "badge",
+          "settings": {
+            "icon_size": 24,
+            "text": "Ships in 2–6 Days"
+          }
+        },
+        "badge_89Emtj": {
+          "type": "badge",
+          "settings": {
+            "icon_size": 24,
+            "text": "A Tree Planted per Order"
+          }
+        }
+      },
+      "block_order": [
+        "badge_mJ9G3H",
+        "badge_68waTL",
+        "badge_J4tyLW",
+        "badge_89Emtj"
+      ],
+      "name": "Trust Badges Bar",
+      "settings": {
+        "bg_color": "#31331E",
+        "text_color": "#FFFFFF",
+        "divider_color": "rgba(0,0,0,0)",
+        "text_size": 20,
+        "icon_filter": "invert(1)"
       }
     },
     "disclosures": {
@@ -126,6 +173,7 @@
   },
   "order": [
     "main",
+    "trust_badge_xzmedd",
     "disclosures",
     "related-products"
   ]
