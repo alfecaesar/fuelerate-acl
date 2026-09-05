@@ -1,6 +1,37 @@
-<div id="trust-badges-bar-{{ section.id }}">
+<div class="trust-badges-bar-{{ section.id }}">
+
+  {% comment %} <div
+    class="tw-flex md:tw-hidden tw-w-full tw-flex-col tw-gap-6 tw-py-8 tw-px-8"
+    style="background-color: {{ section.settings.bg_color }};"
+  >
+    {% for block in section.blocks %}
+      {%- liquid
+        assign mobile_icon_size = block.settings.mobile_icon_size
+      -%}
+      <div class="tw-flex tw-items-center tw-gap-4" {{ block.shopify_attributes }}>
+        {% if block.settings.icon %}
+          <img
+            src="{{ block.settings.icon | image_url: width: 96 }}"
+            alt="{{ block.settings.icon.alt | default: block.settings.text | escape }}"
+            width="{{ mobile_icon_size }}"
+            height="{{ mobile_icon_size }}"
+            loading="lazy"
+            class="tw-shrink-0 tw-object-contain"
+            style="width: {{ mobile_icon_size }}px; height: {{ mobile_icon_size }}px; filter: {{ section.settings.icon_filter }};"
+          >
+        {% endif %}
+        <span
+          class="tw-font-normal tw-tracking-wide"
+          style="color: {{ section.settings.text_color }}; font-size: {{ section.settings.mobile_text_size }}px;"
+        >
+          {{ block.settings.text }}
+        </span>
+      </div>
+    {% endfor %}
+  </div> {% endcomment %}
+
   <div
-    class="tw-hidden md:tw-flex tw-w-full tw-items-center tw-justify-center tw-flex-wrap tw-gap-x-8 lg:tw-gap-x-12 tw-gap-y-3 tw-py-5 tw-px-6"
+    class="tw-flex tw-flex-col md:tw-flex-row tw-w-full tw-items-start md:items-center tw-justify-center tw-flex-wrap tw-gap-x-8 lg:tw-gap-x-12 tw-gap-y-3 tw-py-5 tw-px-6"
     style="background-color: {{ section.settings.bg_color }};"
   >
     {% for block in section.blocks %}
@@ -53,24 +84,33 @@
     {
       "type": "color",
       "id": "divider_color",
-      "label": "Divider color",
+      "label": "Divider color (desktop)",
       "default": "#5A5E4F"
     },
     {
       "type": "range",
       "id": "text_size",
-      "label": "Text size (px)",
+      "label": "Text size - desktop (px)",
       "min": 12,
       "max": 20,
       "step": 1,
       "default": 15
     },
     {
+      "type": "range",
+      "id": "mobile_text_size",
+      "label": "Text size - mobile (px)",
+      "min": 14,
+      "max": 28,
+      "step": 1,
+      "default": 20
+    },
+    {
       "type": "text",
       "id": "icon_filter",
       "label": "Icon color filter (CSS filter value)",
       "info": "Use to recolor icons if they are uploaded as black/dark SVGs or PNGs, e.g. invert(1)",
-      "default": "invert(1)"
+      "default": "invert(0)"
     }
   ],
   "blocks": [
@@ -86,11 +126,20 @@
         {
           "type": "range",
           "id": "icon_size",
-          "label": "Icon size (px)",
+          "label": "Icon size - desktop (px)",
           "min": 16,
           "max": 48,
           "step": 1,
           "default": 24
+        },
+        {
+          "type": "range",
+          "id": "mobile_icon_size",
+          "label": "Icon size - mobile (px)",
+          "min": 24,
+          "max": 64,
+          "step": 1,
+          "default": 48
         },
         {
           "type": "text",

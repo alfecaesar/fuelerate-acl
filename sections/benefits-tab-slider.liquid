@@ -1,0 +1,372 @@
+<div id="benefits-{{ section.id }}" class="benefits-tab-slider">
+  <style>
+    #benefits-{{ section.id }} summary::-webkit-details-marker { display: none; }
+    #benefits-{{ section.id }} summary { list-style: none; }
+    #benefits-{{ section.id }} .benefit-slide {
+      transition: opacity 0.35s ease;
+    }
+  </style>
+
+  <div class="tw-mx-auto tw-max-w-[1280px] tw-px-6 tw-py-12 md:tw-py-16" style="background-color: {{ section.settings.section_bg }};">
+
+    <h2 class="tw-font-serif tw-text-4xl md:tw-text-5xl tw-leading-tight tw-mb-4" style="color: {{ section.settings.heading_color }};">
+      {{ section.settings.heading }}
+    </h2>
+
+    {% comment %} desktop copy {% endcomment %}
+    <p class="tw-hidden md:tw-block tw-max-w-2xl tw-text-sm tw-mb-8" style="color: {{ section.settings.body_color }};">
+      {{ section.settings.desktop_subheading }}
+    </p>
+
+    {% comment %} mobile copy {% endcomment %}
+    <p class="tw-block md:tw-hidden tw-text-base tw-mb-6" style="color: {{ section.settings.body_color }};">
+      {{ section.settings.mobile_subheading }}
+    </p>
+
+    <div class="md:tw-grid md:tw-grid-cols-12 md:tw-gap-8">
+
+      <div class="tw-hidden md:tw-flex md:tw-col-span-5 tw-flex-col tw-gap-3">
+        {% for block in section.blocks %}
+          <button
+            type="button"
+            data-tab-trigger
+            data-index="{{ forloop.index0 }}"
+            class="benefit-pill tw-flex tw-items-center tw-gap-3 tw-rounded-full tw-border tw-px-5 tw-py-3 tw-text-left tw-text-sm tw-font-medium tw-w-fit tw-transition-colors tw-duration-200 {% if forloop.first %}tw-text-white{% else %}tw-bg-white{% endif %}"
+            style="{% if forloop.first %}background-color: {{ section.settings.pill_active_bg }}; border-color: {{ section.settings.pill_active_bg }};{% else %}border-color: {{ section.settings.pill_border }}; color: {{ section.settings.pill_text }};{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.icon != blank %}
+              <img src="{{ block.settings.icon | image_url: width: 40 }}" width="20" height="20" alt="" class="tw-shrink-0" style="{% if forloop.first %}filter: brightness(0) invert(1);{% endif %}">
+            {% endif %}
+            <span>{{ block.settings.label }}</span>
+          </button>
+        {% endfor %}
+      </div>
+
+      <div class="tw-hidden md:tw-flex md:tw-col-span-7 tw-items-stretch tw-relative tw-h-[480px]">
+        {% for block in section.blocks %}
+          <div
+            data-slide
+            data-index="{{ forloop.index0 }}"
+            class="benefit-slide tw-absolute tw-inset-0 tw-flex {% unless forloop.first %}tw-opacity-0 tw-pointer-events-none{% endunless %}"
+          >
+            <div class="tw-w-[38%] tw-shrink-0 tw-overflow-hidden tw-rounded-l-2xl">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.heading | escape }}" class="tw-h-full tw-w-full tw-object-cover">
+              {% else %}
+                <div class="tw-h-full tw-w-full" style="background-color: #111;"></div>
+              {% endif %}
+            </div>
+
+            <div class="tw-flex-1 tw-rounded-r-2xl tw-p-8 lg:tw-p-10" style="background-color: {{ section.settings.card_bg }};">
+              <h3 class="tw-font-serif tw-text-2xl lg:tw-text-3xl tw-leading-snug tw-mb-5" style="color: {{ section.settings.card_heading_color }};">
+                {{ block.settings.heading }}
+              </h3>
+
+              <p class="tw-text-sm tw-font-semibold tw-mb-4" style="color: {{ section.settings.card_text_color }};">
+                {{ block.settings.intro }}
+              </p>
+
+              <ul class="tw-space-y-1 tw-text-sm tw-mb-6 tw-list-disc tw-pl-4" style="color: {{ section.settings.card_text_color }};">
+                {% for line in block.settings.bullets %}
+                  {% assign trimmed_line = line | strip %}
+                  {% if trimmed_line != blank %}
+                    <li>{{ trimmed_line }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+
+              {% if block.settings.cta_label != blank %}
+                <div class="tw-flex tw-flex-col tw-items-center tw-text-center">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.card_text_color }}" stroke-width="1.5" class="tw-mb-2 tw-rotate-90">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                  {% if block.settings.cta_url != blank %}
+                    <a href="{{ block.settings.cta_url }}" class="tw-text-sm tw-font-bold tw-underline-offset-2 hover:tw-underline" style="color: {{ section.settings.card_text_color }};">
+                      {{ block.settings.cta_label }}
+                    </a>
+                  {% else %}
+                    <span class="tw-text-sm tw-font-bold" style="color: {{ section.settings.card_text_color }};">{{ block.settings.cta_label }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+
+        <button type="button" data-prev aria-label="Previous" class="tw-absolute tw-bottom-10 tw--left-5 tw-z-20 tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-full tw-bg-white tw-shadow-md">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button type="button" data-next aria-label="Next" class="tw-absolute tw-bottom-10 tw--right-5 tw-z-20 tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-full tw-bg-white tw-shadow-md">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
+      <div class="tw-block md:tw-hidden tw-space-y-3">
+        {% for block in section.blocks %}
+          <details class="benefit-accordion tw-group tw-rounded-2xl tw-overflow-hidden" {% if forloop.first %}open{% endif %}>
+            <summary
+              class="tw-flex tw-cursor-pointer tw-items-center tw-gap-3 tw-rounded-full tw-border tw-px-5 tw-py-3 tw-text-sm tw-font-medium tw-w-fit group-open:tw-text-white"
+              style="{% if forloop.first %}background-color: {{ section.settings.pill_active_bg }}; border-color: {{ section.settings.pill_active_bg }}; color: #fff;{% else %}border-color: {{ section.settings.pill_border }}; color: {{ section.settings.pill_text }};{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              {% if block.settings.icon != blank %}
+                <img src="{{ block.settings.icon | image_url: width: 40 }}" width="20" height="20" alt="" class="tw-shrink-0" style="{% if forloop.first %}filter: brightness(0) invert(1);{% endif %}">
+              {% endif %}
+              <span>{{ block.settings.label }}</span>
+            </summary>
+
+            <div class="tw-mt-3 tw-rounded-2xl tw-p-6" style="background-color: {{ section.settings.card_bg }};">
+              <h3 class="tw-font-serif tw-text-xl tw-leading-snug tw-mb-4" style="color: {{ section.settings.card_heading_color }};">
+                {{ block.settings.heading }}
+              </h3>
+
+              <p class="tw-text-sm tw-font-semibold tw-mb-3" style="color: {{ section.settings.card_text_color }};">
+                {{ block.settings.intro }}
+              </p>
+
+              <ul class="tw-space-y-1 tw-text-sm tw-mb-5 tw-list-disc tw-pl-4" style="color: {{ section.settings.card_text_color }};">
+                {% for line in block.settings.bullets %}
+                  {% assign trimmed_line = line | strip %}
+                  {% if trimmed_line != blank %}
+                    <li>{{ trimmed_line }}</li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+
+              {% if block.settings.cta_label != blank %}
+                <div class="tw-flex tw-flex-col tw-items-center tw-text-center">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.card_text_color }}" stroke-width="1.5" class="tw-mb-2 tw-rotate-90">
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                  {% if block.settings.cta_url != blank %}
+                    <a href="{{ block.settings.cta_url }}" class="tw-text-sm tw-font-bold" style="color: {{ section.settings.card_text_color }};">{{ block.settings.cta_label }}</a>
+                  {% else %}
+                    <span class="tw-text-sm tw-font-bold" style="color: {{ section.settings.card_text_color }};">{{ block.settings.cta_label }}</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </details>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var root = document.getElementById('benefits-{{ section.id }}');
+  if (!root) return;
+
+  var pills = root.querySelectorAll('[data-tab-trigger]');
+  var slides = root.querySelectorAll('[data-slide]');
+  var prevBtn = root.querySelector('[data-prev]');
+  var nextBtn = root.querySelector('[data-next]');
+  var activePillBg = '{{ section.settings.pill_active_bg }}';
+  var pillBorder = '{{ section.settings.pill_border }}';
+  var pillText = '{{ section.settings.pill_text }}';
+  var current = 0;
+
+  function goTo(index) {
+    var total = slides.length;
+    if (total === 0) return;
+    current = (index + total) % total;
+
+    pills.forEach(function(pill) {
+      var isActive = parseInt(pill.getAttribute('data-index'), 10) === current;
+      var icon = pill.querySelector('img');
+      if (isActive) {
+        pill.style.backgroundColor = activePillBg;
+        pill.style.borderColor = activePillBg;
+        pill.style.color = '#fff';
+        if (icon) icon.style.filter = 'brightness(0) invert(1)';
+      } else {
+        pill.style.backgroundColor = '#fff';
+        pill.style.borderColor = pillBorder;
+        pill.style.color = pillText;
+        if (icon) icon.style.filter = 'none';
+      }
+    });
+
+    slides.forEach(function(slide) {
+      var isActive = parseInt(slide.getAttribute('data-index'), 10) === current;
+      slide.classList.toggle('tw-opacity-0', !isActive);
+      slide.classList.toggle('tw-pointer-events-none', !isActive);
+    });
+  }
+
+  pills.forEach(function(pill) {
+    pill.addEventListener('click', function() {
+      goTo(parseInt(pill.getAttribute('data-index'), 10));
+    });
+  });
+
+  if (prevBtn) prevBtn.addEventListener('click', function() { goTo(current - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function() { goTo(current + 1); });
+
+  var accordions = root.querySelectorAll('.benefit-accordion');
+  accordions.forEach(function(item) {
+    item.addEventListener('toggle', function() {
+      if (item.open) {
+        accordions.forEach(function(other) {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Benefits Tab Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "One Natural Solution. Whole-Body Benefits."
+    },
+    {
+      "type": "textarea",
+      "id": "desktop_subheading",
+      "label": "Subheading (desktop)",
+      "default": "Grounding supports every major system in your body, helping relieve chronic symptoms, restore balance, and promote long-term wellness. Backed by 20+ years of research and thousands of customer results."
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_subheading",
+      "label": "Subheading (mobile)",
+      "default": "You may be missing the Earth's most powerful remedy. Grounding restores your connection to it, helping reduce inflammation, calm your system, and support deep, uninterrupted sleep."
+    },
+    {
+      "type": "color",
+      "id": "section_bg",
+      "label": "Section background",
+      "default": "#F1EFE9"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1E2015"
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Body text color",
+      "default": "#4A4B42"
+    },
+    {
+      "type": "color",
+      "id": "pill_active_bg",
+      "label": "Active pill background",
+      "default": "#2C2E1F"
+    },
+    {
+      "type": "color",
+      "id": "pill_border",
+      "label": "Inactive pill border",
+      "default": "#D8D5CA"
+    },
+    {
+      "type": "color",
+      "id": "pill_text",
+      "label": "Inactive pill text",
+      "default": "#2C2E1F"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Content card background",
+      "default": "#2C2E1F"
+    },
+    {
+      "type": "color",
+      "id": "card_heading_color",
+      "label": "Content card heading color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Content card text color",
+      "default": "#EDEBE3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit tab",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Pill icon"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Pill label",
+          "default": "Neurological & Mental Health"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (desktop only)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Content heading",
+          "default": "Neurological & Mental Health"
+        },
+        {
+          "type": "textarea",
+          "id": "intro",
+          "label": "Intro line",
+          "default": "Grounding helps calm and stabilize the nervous system, supporting those dealing with:"
+        },
+        {
+          "type": "textarea",
+          "id": "bullets",
+          "label": "Bullet points (one per line)",
+          "default": "Migraines & headaches\nNeuropathy & brain fog\nAnxiety, depression & mood swings\nADHD & focus issues\nInsomnia & disrupted sleep"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "CTA text",
+          "default": "Explore the science behind these benefits"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Benefits Tab Slider",
+      "blocks": [
+        { "type": "benefit", "settings": { "label": "Neurological & Mental Health", "heading": "Neurological & Mental Health" } },
+        { "type": "benefit", "settings": { "label": "Musculoskeletal Pain & Inflammation", "heading": "Musculoskeletal Pain & Inflammation" } },
+        { "type": "benefit", "settings": { "label": "Cardiovascular & Circulatory Health", "heading": "Cardiovascular & Circulatory Health" } },
+        { "type": "benefit", "settings": { "label": "Immune & Inflammatory Conditions", "heading": "Immune & Inflammatory Conditions" } },
+        { "type": "benefit", "settings": { "label": "Hormonal & Metabolic Balance", "heading": "Hormonal & Metabolic Balance" } },
+        { "type": "benefit", "settings": { "label": "Specialized Support", "heading": "Specialized Support" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
