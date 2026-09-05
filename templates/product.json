@@ -102,6 +102,7 @@
           "settings": {
             "icon": "shopify://shop_images/tb1.svg",
             "icon_size": 36,
+            "mobile_icon_size": 48,
             "text": "90-Day Results-Backed Guarantee"
           }
         },
@@ -110,6 +111,7 @@
           "settings": {
             "icon": "shopify://shop_images/tb2.svg",
             "icon_size": 36,
+            "mobile_icon_size": 48,
             "text": "Designed in USA"
           }
         },
@@ -118,6 +120,7 @@
           "settings": {
             "icon": "shopify://shop_images/tb3.svg",
             "icon_size": 36,
+            "mobile_icon_size": 48,
             "text": "Ships in 2–6 Days"
           }
         },
@@ -126,6 +129,7 @@
           "settings": {
             "icon": "shopify://shop_images/tb4.svg",
             "icon_size": 36,
+            "mobile_icon_size": 48,
             "text": "A Tree Planted per Order"
           }
         }
@@ -142,7 +146,114 @@
         "text_color": "#ffffff",
         "divider_color": "rgba(0,0,0,0)",
         "text_size": 20,
+        "mobile_text_size": 20,
         "icon_filter": "invert(0)"
+      }
+    },
+    "benefits_tab_slider_fMg4AC": {
+      "type": "benefits-tab-slider",
+      "blocks": {
+        "benefit_arAA9H": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/b1-icon.svg",
+            "label": "Neurological & Mental Health",
+            "image": "shopify://shop_images/b1.png",
+            "heading": "Neurological & Mental Health",
+            "intro": "Grounding helps calm and stabilize the nervous system, supporting those dealing with:",
+            "bullets": "Migraines & headaches\nNeuropathy & brain fog\nAnxiety, depression & mood swings\nADHD & focus issues\nInsomnia & disrupted sleep",
+            "cta_label": "Explore the science behind these benefits",
+            "cta_url": "#"
+          }
+        },
+        "benefit_Lpy3jD": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/b2-icon.svg",
+            "label": "Musculoskeletal Pain & Inflammation",
+            "image": "shopify://shop_images/b2.png",
+            "heading": "Musculoskeletal Pain & Inflammation",
+            "intro": "By reducing chronic inflammation, grounding can offer relief from:",
+            "bullets": "Arthritis (RA & OA)\nFibromyalgia\nJoint, back & neck pain\nChronic fatigue syndrome\nPost-exercise soreness",
+            "cta_label": "Explore the science behind these benefits",
+            "cta_url": "#"
+          }
+        },
+        "benefit_VEkTKH": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/b3-icon.svg",
+            "label": "Cardiovascular & Circulatory Health",
+            "image": "shopify://shop_images/b3.png",
+            "heading": "Cardiovascular & Circulatory Health",
+            "intro": "Grounding supports healthy blood flow and thermal regulation. Ideal for those managing:",
+            "bullets": "Poor circulation\nHigh blood pressure\nSwollen legs & feet\nVaricose veins\nCold extremities",
+            "cta_label": "Explore the science behind these benefits",
+            "cta_url": "#"
+          }
+        },
+        "benefit_MekEdG": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/b4-icon.svg",
+            "label": "Immune & Inflammatory Conditions",
+            "image": "shopify://shop_images/b4.png",
+            "heading": "Immune & Inflammatory Conditions",
+            "intro": "By calming the body’s inflammatory response, grounding may support conditions like:",
+            "bullets": "Autoimmune flare-ups (Lupus, MS, RA)\nAllergies & asthma\nInflammation-related skin issues",
+            "cta_label": "Explore the science behind these benefits",
+            "cta_url": "#"
+          }
+        },
+        "benefit_bjpEk3": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/b5-icon.svg",
+            "label": "Hormonal & Metabolic Balance",
+            "image": "shopify://shop_images/b5.png",
+            "heading": "Hormonal & Metabolic Balance",
+            "intro": "Grounding helps support hormone and metabolic regulation. Particularly helpful for:",
+            "bullets": "Menopause & perimenopause\nPCOS & irregular cycles\nThyroid imbalance\nInsulin resistance & blood sugar issues",
+            "cta_label": "Explore the science behind these benefits",
+            "cta_url": "#"
+          }
+        },
+        "benefit_EA3pJa": {
+          "type": "benefit",
+          "settings": {
+            "icon": "shopify://shop_images/b6-icon.svg",
+            "label": "Specialized Support",
+            "image": "shopify://shop_images/b6.png",
+            "heading": "Specialized Support",
+            "intro": "A daily grounding practice can also support:",
+            "bullets": "Injury & post-surgery recovery\nPregnancy support (with doctor approval)\nJet lag & circadian disruption\nSkin health (eczema, psoriasis)\nAthletic performance & muscle recovery",
+            "cta_label": "Explore the science behind these benefits",
+            "cta_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_arAA9H",
+        "benefit_Lpy3jD",
+        "benefit_VEkTKH",
+        "benefit_MekEdG",
+        "benefit_bjpEk3",
+        "benefit_EA3pJa"
+      ],
+      "name": "Benefits Tab Slider",
+      "settings": {
+        "heading": "One Natural Solution. Whole-Body Benefits.",
+        "desktop_subheading": "Grounding supports every major system in your body, helping relieve chronic symptoms, restore balance, and promote long-term wellness. Backed by 20+ years of research and thousands of customer results.",
+        "mobile_subheading": "You may be missing the Earth's most powerful remedy. Grounding restores your connection to it, helping reduce inflammation, calm your system, and support deep, uninterrupted sleep.",
+        "section_bg": "#F1EFE9",
+        "heading_color": "#1E2015",
+        "body_color": "#4A4B42",
+        "pill_active_bg": "#2C2E1F",
+        "pill_border": "#D8D5CA",
+        "pill_text": "#2C2E1F",
+        "card_bg": "#2C2E1F",
+        "card_heading_color": "#FFFFFF",
+        "card_text_color": "#EDEBE3"
       }
     },
     "disclosures": {
@@ -178,6 +289,7 @@
   "order": [
     "main",
     "trust_badge_xzmedd",
+    "benefits_tab_slider_fMg4AC",
     "disclosures",
     "related-products"
   ]
