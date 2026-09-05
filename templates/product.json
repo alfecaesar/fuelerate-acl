@@ -245,19 +245,93 @@
         "heading": "One Natural Solution. Whole-Body Benefits.",
         "desktop_subheading": "Grounding supports every major system in your body, helping relieve chronic symptoms, restore balance, and promote long-term wellness. Backed by 20+ years of research and thousands of customer results.",
         "mobile_subheading": "You may be missing the Earth's most powerful remedy. Grounding restores your connection to it, helping reduce inflammation, calm your system, and support deep, uninterrupted sleep.",
-        "section_bg": "#F4F3EE",
-        "heading_color": "#31331E",
-        "body_color": "#31331E",
-        "pill_active_bg": "#31331E",
-        "pill_border": "#31331E",
-        "pill_text": "#31331E",
-        "card_bg": "#31331E",
-        "card_heading_color": "#FFFFFF",
-        "card_text_color": "#FFFFFF"
+        "section_bg": "#f4f3ee",
+        "heading_color": "#31331e",
+        "body_color": "#31331e",
+        "pill_active_bg": "#31331e",
+        "pill_border": "#31331e",
+        "pill_text": "#31331e",
+        "card_bg": "#31331e",
+        "card_heading_color": "#ffffff",
+        "card_text_color": "#ffffff"
+      }
+    },
+    "comparison_table_WM9Hrm": {
+      "type": "comparison-table",
+      "blocks": {
+        "featured_row_nztFEL": {
+          "type": "featured_row",
+          "settings": {
+            "icon": "shopify://shop_images/t1.png",
+            "logo_text": "Terra Therapy",
+            "how_it_works": "Reconnects body to Earth's natural charge to reduce inflammation and improve sleep",
+            "what_to_consider": "Requires grounded outlet and direct skin contact for best results",
+            "cost_over_time": "One-time purchase",
+            "side_effects": "None - 100% safe, drug-free"
+          }
+        },
+        "row_qFpGXt": {
+          "type": "row",
+          "settings": {
+            "icon": "shopify://shop_images/t2.png",
+            "name": "Sleeping Pills",
+            "how_it_works": "Sedate the brain with sleep-inducing chemicals",
+            "what_to_consider": "Tolerance builds, grogginess, not long-term safe",
+            "cost_over_time": "Ongoing",
+            "side_effects": "Dependency & side effects"
+          }
+        },
+        "row_wtGHir": {
+          "type": "row",
+          "settings": {
+            "icon": "shopify://shop_images/t3.png",
+            "name": "Pain Meds",
+            "how_it_works": "Block pain signals temporarily",
+            "what_to_consider": "Doesn't treat root cause, side effects common",
+            "cost_over_time": "High if chronic",
+            "side_effects": "Risk of addiction or long-term damage"
+          }
+        },
+        "row_RwQ3cT": {
+          "type": "row",
+          "settings": {
+            "icon": "shopify://shop_images/t4.png",
+            "name": "Chiropractor",
+            "how_it_works": "Manual realignment of joints/spine",
+            "what_to_consider": "Frequent visits needed, temporary relief",
+            "cost_over_time": "High recurring cost",
+            "side_effects": "Not suitable for every condition"
+          }
+        },
+        "row_F6YGTM": {
+          "type": "row",
+          "settings": {
+            "icon": "shopify://shop_images/t5.png",
+            "name": "Supplements",
+            "how_it_works": "Target isolated symptoms like melatonin or blue light",
+            "what_to_consider": "Vary in effectiveness, often don't address the root",
+            "cost_over_time": "Ongoing",
+            "side_effects": "Often unproven or inconsistent"
+          }
+        }
+      },
+      "block_order": [
+        "featured_row_nztFEL",
+        "row_qFpGXt",
+        "row_wtGHir",
+        "row_RwQ3cT",
+        "row_F6YGTM"
+      ],
+      "name": "Comparison Table",
+      "settings": {
+        "heading": "Why We Are Really Different",
+        "featured_product": "terra-therapy-fitted-grounding-bedsheet",
+        "add_to_cart_label": "Add to Cart"
       }
     },
     "disclosures": {
       "type": "disclosures",
+      "disabled": true,
       "settings": {
         "heading": "Disclosures",
         "heading_size": "h2",
@@ -290,6 +364,7 @@
     "main",
     "trust_badge_xzmedd",
     "benefits_tab_slider_fMg4AC",
+    "comparison_table_WM9Hrm",
     "disclosures",
     "related-products"
   ]
