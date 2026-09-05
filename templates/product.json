@@ -100,28 +100,32 @@
         "badge_mJ9G3H": {
           "type": "badge",
           "settings": {
-            "icon_size": 24,
+            "icon": "shopify://shop_images/tb1.svg",
+            "icon_size": 36,
             "text": "90-Day Results-Backed Guarantee"
           }
         },
         "badge_68waTL": {
           "type": "badge",
           "settings": {
-            "icon_size": 24,
+            "icon": "shopify://shop_images/tb2.svg",
+            "icon_size": 36,
             "text": "Designed in USA"
           }
         },
         "badge_J4tyLW": {
           "type": "badge",
           "settings": {
-            "icon_size": 24,
+            "icon": "shopify://shop_images/tb3.svg",
+            "icon_size": 36,
             "text": "Ships in 2–6 Days"
           }
         },
         "badge_89Emtj": {
           "type": "badge",
           "settings": {
-            "icon_size": 24,
+            "icon": "shopify://shop_images/tb4.svg",
+            "icon_size": 36,
             "text": "A Tree Planted per Order"
           }
         }
@@ -138,7 +142,7 @@
         "text_color": "#FFFFFF",
         "divider_color": "rgba(0,0,0,0)",
         "text_size": 20,
-        "icon_filter": "invert(1)"
+        "icon_filter": "invert(0)"
       }
     },
     "disclosures": {
