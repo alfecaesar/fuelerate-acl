@@ -245,15 +245,15 @@
         "heading": "One Natural Solution. Whole-Body Benefits.",
         "desktop_subheading": "Grounding supports every major system in your body, helping relieve chronic symptoms, restore balance, and promote long-term wellness. Backed by 20+ years of research and thousands of customer results.",
         "mobile_subheading": "You may be missing the Earth's most powerful remedy. Grounding restores your connection to it, helping reduce inflammation, calm your system, and support deep, uninterrupted sleep.",
-        "section_bg": "#F1EFE9",
-        "heading_color": "#1E2015",
-        "body_color": "#4A4B42",
-        "pill_active_bg": "#2C2E1F",
-        "pill_border": "#D8D5CA",
-        "pill_text": "#2C2E1F",
-        "card_bg": "#2C2E1F",
+        "section_bg": "#F4F3EE",
+        "heading_color": "#31331E",
+        "body_color": "#31331E",
+        "pill_active_bg": "#31331E",
+        "pill_border": "#31331E",
+        "pill_text": "#31331E",
+        "card_bg": "#31331E",
         "card_heading_color": "#FFFFFF",
-        "card_text_color": "#EDEBE3"
+        "card_text_color": "#FFFFFF"
       }
     },
     "disclosures": {
