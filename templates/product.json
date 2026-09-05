@@ -91,7 +91,7 @@
         "hide_variants": true,
         "enable_video_looping": true,
         "padding_top": 0,
-        "padding_bottom": 12
+        "padding_bottom": 0
       }
     },
     "trust_badge_xzmedd": {
@@ -138,8 +138,8 @@
       ],
       "name": "Trust Badges Bar",
       "settings": {
-        "bg_color": "#31331E",
-        "text_color": "#FFFFFF",
+        "bg_color": "#31331e",
+        "text_color": "#ffffff",
         "divider_color": "rgba(0,0,0,0)",
         "text_size": 20,
         "icon_filter": "invert(0)"
