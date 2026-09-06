@@ -115,7 +115,7 @@
 
                 {% when 'key_benefits' %}
                   {% if block.settings.label != blank and block.settings.list_metafield != blank %}
-                    <div>
+                    <div class="tw-border-b-[1px] tw-border-[#000] tw-border-solid tw-border-0 md:!tw-border-0">
                       <div class="tw-flex tw-flex-col tw-gap-[20px] tw-mb-[20px]">
                         <h3 class="font-body-family tw-text-[16px] tw-font-bold tw-leading-[111%] tw-text-[#31331E] tw-my-0">{{ block.settings.label }}</h3>
                         <ul class="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-m-0 tw-p-0 tw-list-none tw-gap-[10px]">
@@ -147,7 +147,7 @@
                     {{- block.settings.text -}}
                   </p>
                 {%- when 'title' -%}
-                  <div class="product__title tw-max-w-[500px]" {{ block.shopify_attributes }}>
+                  <div class="product__title tw-max-w-[300px] md:tw-max-w-[500px]" {{ block.shopify_attributes }}>
                     <h1>{{ product.title | escape }}</h1>
                     <a href="{{ product.url }}" class="product__title">
                       <h2 class="h1">

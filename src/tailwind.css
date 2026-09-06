@@ -18,8 +18,12 @@
     @apply tw-hidden;
 }
 
+.price--on-sale .price__sale{
+    @apply !tw-flex !tw-flex-nowrap;
+}
+
 .price-item--regular{
-    @apply !tw-no-underline !tw-text-[#FF3030B5] !tw-text-[36px] !tw-leading-[120%] !tw-font-normal !tw-m-0;
+    @apply !tw-no-underline !tw-text-[#FF3030B5] !tw-text-[25px] md:!tw-text-[36px] !tw-leading-[120%] !tw-font-normal !tw-m-0;
 }
 
 .price__sale{ 
@@ -27,7 +31,7 @@
 }
 
 .price-item--sale{
-    @apply tw-text-[#31331E] tw-text-[36px] !tw-leading-[120%] !tw-font-normal !tw-m-0;
+    @apply tw-text-[#31331E] tw-text-[25px] md:tw-text-[36px] !tw-leading-[120%] !tw-font-normal !tw-m-0;
 }
 
 .price--show-badge{
@@ -82,4 +86,26 @@
 .product-tabs .tab-panel *{
     font-family: var(--font-body-family);
     @apply tw-text-[16px] tw-leading-[111%] tw-text-[#31331E]/75 !tw-font-normal;
+}
+
+.product__title h1{
+    font-family: var(--font-heading-family);
+    @apply tw-text-[24px] tw-leading-[100%] md:tw-text-[48px] md:tw-leading-[120%] tw-text-[#31331E] !tw-font-normal !tw-m-0;
+}
+
+.bg-gradient{
+    background: url(https://cdn.shopify.com/s/files/1/1075/1243/0926/files/Rectangle_40142.png?v=1788694884) no-repeat center center;
+    background-size: cover;
+}
+
+slider-component .slider-buttons{
+    @apply tw-hidden;
+}
+
+.accordion-item button{
+    @apply tw-border-none tw-border-b-[1px] !tw-border-solid tw-border-[#31331E] tw-text-[16px];
+}
+
+.accordion-item button[aria-expanded="true"]{
+    @apply tw-border-none tw-border-b-[2px] !tw-border-solid tw-border-[#31331E];
 }

@@ -13,10 +13,10 @@
   data-comparison-table
   data-section-id="{{ section.id }}"
 >
-  <div class="tw-max-w-6xl tw-mx-auto tw-px-4 sm:tw-px-6">
+  <div class="tw-max-w-[1440px] tw-mx-auto tw-px-4 sm:tw-px-6">
 
     {%- if section.settings.heading != blank -%}
-      <h2 class="tw-font-serif tw-text-3xl sm:tw-text-4xl md:tw-text-5xl tw-text-center tw-text-olive-900 tw-mb-8 md:tw-mb-12">
+      <h2 class="tw-text-[24px] md:tw-text-[64px] tw-leading-[120%] font-heading-family tw-text-center tw-mt-0 md:tw-mt-[20px] tw-mb-5 md:tw-mb-0">
         {{ section.settings.heading }}
       </h2>
     {%- endif -%}
@@ -27,72 +27,74 @@
         <table class="tw-w-full tw-border-collapse">
           <thead>
             <tr>
-              <th class="tw-text-left tw-text-sm tw-font-semibold tw-text-olive-900 tw-py-4 tw-px-6 tw-w-[16%]">Solution</th>
-              <th class="tw-text-left tw-text-sm tw-font-semibold tw-text-olive-900 tw-py-4 tw-px-6 tw-w-[26%]">How it works</th>
-              <th class="tw-text-left tw-text-sm tw-font-semibold tw-text-olive-900 tw-py-4 tw-px-6 tw-w-[26%]">What to consider</th>
-              <th class="tw-text-left tw-text-sm tw-font-semibold tw-text-olive-900 tw-py-4 tw-px-6 tw-w-[16%]">Cost over time</th>
-              <th class="tw-text-left tw-text-sm tw-font-semibold tw-text-olive-900 tw-py-4 tw-px-6 tw-w-[16%]">Side effects</th>
+              <th class="tw-text-center tw-text-[16px] tw-leading-[111%] tw-font-bold tw-py-[20px] tw-px-6 tw-w-[16%]">Solution</th>
+              <th class="tw-text-center tw-text-[16px] tw-leading-[111%] tw-font-bold tw-py-[20px] tw-px-6 tw-w-[30%]">How it works</th>
+              <th class="tw-text-center tw-text-[16px] tw-leading-[111%] tw-font-bold tw-py-[20px] tw-px-6 tw-w-[22%]">What to consider</th>
+              <th class="tw-text-center tw-text-[16px] tw-leading-[111%] tw-font-bold tw-py-[20px] tw-px-6 tw-w-[13%]">Cost over time</th>
+              <th class="tw-text-center tw-text-[16px] tw-leading-[111%] tw-font-bold tw-py-[20px] tw-px-6 tw-w-[19%]">Side effects</th>
             </tr>
           </thead>
           <tbody>
             {%- for block in section.blocks -%}
               {%- if block.type == 'featured_row' -%}
-                <tr {{ block.shopify_attributes }} class="tw-bg-gradient-to-r tw-from-olive-800 tw-to-olive-600">
+                <tr {{ block.shopify_attributes }} class="bg-gradient">
                   <td class="tw-py-6 tw-px-6 tw-align-middle">
-                    <div class="tw-flex tw-flex-col tw-items-start tw-gap-2">
+                    <div class="tw-flex tw-flex-col tw-items-center tw-gap-2">
                       {%- if block.settings.icon -%}
                         <img
-                          src="{{ block.settings.icon | image_url: width: 80 }}"
+                          src="{{ block.settings.icon | image_url: width: 70 }}"
                           alt="{{ block.settings.icon.alt | default: block.settings.logo_text }}"
-                          width="32"
-                          height="32"
+                          width="70"
+                          height="70"
                           loading="lazy"
-                          class="tw-w-8 tw-h-8 tw-object-contain tw-brightness-0 tw-invert tw-opacity-90"
+                          class="tw-w-[70px] tw-h-[70px] tw-object-contain"
                         >
                       {%- endif -%}
-                      <span class="tw-text-white tw-font-semibold tw-text-sm">{{ block.settings.logo_text }}</span>
+                      <span class="tw-text-white tw-text-[16px] tw-leading-[111%] tw-font-bold">
+                        {{ block.settings.logo_text }}
+                      </span>
                     </div>
                   </td>
-                  <td class="tw-py-6 tw-px-6 tw-align-middle tw-text-white tw-font-semibold tw-text-sm tw-leading-relaxed">
+                  <td class="tw-py-6 tw-px-6 tw-align-middle tw-text-white tw-text-[16px] tw-leading-[111%] tw-font-bold">
                     {{ block.settings.how_it_works }}
                   </td>
-                  <td class="tw-py-6 tw-px-6 tw-align-middle tw-text-white tw-font-semibold tw-text-sm tw-leading-relaxed">
+                  <td class="tw-py-6 tw-px-6 tw-align-middle tw-text-white tw-text-[16px] tw-leading-[111%] tw-font-bold">
                     {{ block.settings.what_to_consider }}
                   </td>
-                  <td class="tw-py-6 tw-px-6 tw-align-middle tw-text-white tw-font-semibold tw-text-sm">
+                  <td class="tw-py-6 tw-px-6 tw-align-middle tw-text-white tw-text-[16px] tw-leading-[111%] tw-font-bold">
                     {{ block.settings.cost_over_time }}
                   </td>
-                  <td class="tw-py-6 tw-px-6 tw-align-middle tw-text-white tw-font-semibold tw-text-sm">
+                  <td class="tw-py-6 tw-px-6 tw-align-middle tw-text-white tw-text-[16px] tw-leading-[111%] tw-font-bold">
                     {{ block.settings.side_effects }}
                   </td>
                 </tr>
               {%- else -%}
                 <tr {{ block.shopify_attributes }} class="tw-border-t tw-border-olive-100">
                   <td class="tw-py-5 tw-px-6 tw-align-middle">
-                    <div class="tw-flex tw-flex-col tw-items-start tw-gap-2">
+                    <div class="tw-flex tw-flex-col tw-items-center tw-gap-2">
                       {%- if block.settings.icon -%}
                         <img
-                          src="{{ block.settings.icon | image_url: width: 80 }}"
+                          src="{{ block.settings.icon | image_url: width: 70 }}"
                           alt="{{ block.settings.icon.alt | default: block.settings.name }}"
-                          width="28"
-                          height="28"
+                          width="70"
+                          height="70"
                           loading="lazy"
-                          class="tw-w-7 tw-h-7 tw-object-contain"
+                          class="tw-w-[40px] tw-h-[30px] tw-object-contain"
                         >
                       {%- endif -%}
-                      <span class="tw-font-semibold tw-text-sm tw-text-olive-900">{{ block.settings.name }}</span>
+                      <span class="tw-text-[16px] tw-leading-[111%] tw-font-bold tw-text-[#31331E]">{{ block.settings.name }}</span>
                     </div>
                   </td>
-                  <td class="tw-py-5 tw-px-6 tw-align-middle tw-text-sm tw-text-neutral-700 tw-leading-relaxed">
+                  <td class="tw-py-5 tw-px-6 tw-align-middle tw-text-[16px] tw-leading-[111%] tw-font-normal tw-text-[#31331E]">
                     {{ block.settings.how_it_works }}
                   </td>
-                  <td class="tw-py-5 tw-px-6 tw-align-middle tw-text-sm tw-text-neutral-700 tw-leading-relaxed">
+                  <td class="tw-py-5 tw-px-6 tw-align-middle tw-text-[16px] tw-leading-[111%] tw-font-normal tw-text-[#31331E]">
                     {{ block.settings.what_to_consider }}
                   </td>
-                  <td class="tw-py-5 tw-px-6 tw-align-middle tw-text-sm tw-text-neutral-700">
+                  <td class="tw-py-5 tw-px-6 tw-align-middle tw-text-[16px] tw-leading-[111%] tw-font-normal tw-text-[#31331E]">
                     {{ block.settings.cost_over_time }}
                   </td>
-                  <td class="tw-py-5 tw-px-6 tw-align-middle tw-text-sm tw-text-neutral-700">
+                  <td class="tw-py-5 tw-px-6 tw-align-middle tw-text-[16px] tw-leading-[111%] tw-font-normal tw-text-[#31331E]">
                     {{ block.settings.side_effects }}
                   </td>
                 </tr>
@@ -108,7 +110,7 @@
           data-comparison-add-to-cart
           data-variant-id="{{ featured_variant_id }}"
           {% if featured_variant_id == blank %}disabled{% endif %}
-          class="tw-font-serif tw-text-lg tw-text-olive-950 tw-bg-olive-400 hover:tw-bg-olive-500 tw-px-12 tw-py-4 tw-rounded-full tw-transition-colors tw-duration-200 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
+          class="tw-bg-[#A8CA1B] tw-rounded-[50px] tw-border-0 tw-transition-colors tw-duration-200 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-py-[20px] tw-px-[100px] tw-text-[24px] font-heading-family tw-text-[#31331E] tw-leading-[111%] tw-uppercase tw-cursor-pointer"
         >
           <span data-btn-label>{{ section.settings.add_to_cart_label | default: 'Add to Cart' }}</span>
         </button>
@@ -119,18 +121,20 @@
     <div class="tw-block md:tw-hidden">
       <div class="tw-flex tw-gap-3 tw-items-stretch">
 
-        {%- comment -%} Solution picker {%- endcomment -%}
+
         <div
           class="tw-w-[104px] tw-flex-shrink-0 tw-bg-white tw-rounded-2xl tw-shadow-sm tw-overflow-hidden tw-self-start"
           data-solution-list
         >
+            <div class="tw-text-center tw-text-[11px] tw-pt-[10px] tw-pb-[5px]">Solution</div>
           {%- for block in section.blocks -%}
             {%- assign is_first = forloop.first -%}
             <button
               type="button"
               data-solution-trigger
               data-solution-index="{{ forloop.index0 }}"
-              class="tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-1.5 tw-py-3.5 tw-px-2 tw-text-center tw-transition-colors tw-duration-150 {% unless forloop.last %}tw-border-b tw-border-olive-100{% endunless %} {% if is_first %}tw-bg-olive-500{% else %}tw-bg-white{% endif %}"
+              class="tw-border-none tw-w-full tw-flex tw-flex-col tw-items-center tw-gap-1.5 tw-py-3.5 tw-px-2 tw-text-center tw-transition-colors tw-duration-150 tw-bg-white"
+              {% if is_first %}style="background: url(https://cdn.shopify.com/s/files/1/1075/1243/0926/files/Rectangle_40142.png?v=1788694884) no-repeat center center / cover;"{% endif %}
             >
               {%- if block.settings.icon -%}
                 <img
@@ -159,7 +163,7 @@
             {%- for label in attribute_labels -%}
               {%- assign attr_key = attribute_keys[forloop.index0] -%}
               <div class="tw-w-full tw-flex-shrink-0 tw-snap-start" data-attribute-page="{{ forloop.index0 }}">
-                <div class="tw-py-3.5 tw-px-4 tw-border-b tw-border-olive-100 tw-text-center tw-font-semibold tw-text-sm tw-text-olive-900">
+                <div class="tw-py-3.5 tw-px-4 tw-border-b tw-border-olive-100 tw-text-center tw-text-[11px]">
                   {{ label }}
                 </div>
                 {%- for block in section.blocks -%}
@@ -167,7 +171,8 @@
                   <div
                     data-solution-answer
                     data-solution-index="{{ forloop.index0 }}"
-                    class="tw-mx-2 tw-my-1.5 tw-px-3 tw-py-3 tw-rounded-lg tw-text-sm tw-leading-relaxed tw-transition-colors tw-duration-150 {% if forloop.first %}tw-bg-olive-500 tw-text-white tw-font-semibold{% else %}tw-text-neutral-700{% endif %}"
+                    class="tw-mx-2 tw-my-1.5 tw-px-3 tw-py-3 tw-rounded-lg tw-text-[11px] {% if forloop.first %} tw-text-white{% else %} tw-text-[#31331E{% endif %}"
+                    {% if forloop.first %}style="background: url(https://cdn.shopify.com/s/files/1/1075/1243/0926/files/Rectangle_40142.png?v=1788694884) no-repeat right center / cover;"{% endif %}
                   >
                     {{ row_value }}
                   </div>
@@ -185,7 +190,7 @@
             type="button"
             aria-label="Show {{ label }}"
             data-dot-index="{{ forloop.index0 }}"
-            class="tw-w-2 tw-h-2 tw-rounded-full tw-transition-colors tw-duration-150 {% if forloop.first %}tw-bg-olive-400{% else %}tw-bg-neutral-300{% endif %}"
+            class="tw-border-none tw-w-2 tw-h-2 tw-rounded-full tw-transition-colors tw-duration-150 {% if forloop.first %}tw-bg-olive-400{% else %}tw-bg-neutral-300{% endif %}"
           ></button>
         {%- endfor -%}
       </div>
@@ -196,7 +201,7 @@
           data-comparison-add-to-cart
           data-variant-id="{{ featured_variant_id }}"
           {% if featured_variant_id == blank %}disabled{% endif %}
-          class="tw-w-full tw-font-serif tw-text-base tw-text-olive-950 tw-bg-olive-400 hover:tw-bg-olive-500 tw-px-8 tw-py-4 tw-rounded-full tw-transition-colors tw-duration-200 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed"
+          class="tw-bg-[#A8CA1B] tw-rounded-[50px] tw-border-0 tw-transition-colors tw-duration-200 disabled:tw-opacity-50 disabled:tw-cursor-not-allowed tw-py-[20px] tw-px-[10px] tw-text-[20px] font-heading-family tw-text-[#31331E] tw-leading-[111%] tw-uppercase tw-cursor-pointer tw-w-full"
         >
           <span data-btn-label>{{ section.settings.add_to_cart_label | default: 'Add to Cart' }}</span>
         </button>
@@ -207,6 +212,9 @@
 </div>
 
 {%- style -%}
+  #comparison-table-{{ section.id }} {
+    background-color: #F4F3EE;
+  }
   #comparison-table-{{ section.id }} .comparison-no-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -215,47 +223,6 @@
     display: none;
   }
 {%- endstyle -%}
-
-{%- comment -%}
-  Tailwind is loaded once per page via the Play CDN and prefixed with "tw-" so it can't
-  collide with theme styles. The custom palette below is what gives us the olive/cream
-  tones from the design without hand-rolling a bunch of one-off hex classes everywhere.
-{%- endcomment -%}
-<script>
-  (function () {
-    if (window.__comparisonTableTailwindReady) return;
-    window.__comparisonTableTailwindReady = true;
-
-    window.tailwind = window.tailwind || {};
-    window.tailwind.config = {
-      prefix: 'tw-',
-      theme: {
-        extend: {
-          colors: {
-            cream: '#f2efe7',
-            olive: {
-              50: '#f4f6ec',
-              100: '#e6ebd6',
-              400: '#a9c93c',
-              500: '#95b432',
-              600: '#7c9829',
-              800: '#3c5530',
-              900: '#31432a',
-              950: '#26331f'
-            }
-          },
-          fontFamily: {
-            serif: ['Georgia', 'Cambria', 'Times New Roman', 'Times', 'serif']
-          }
-        }
-      }
-    };
-
-    var tw = document.createElement('script');
-    tw.src = 'https://cdn.tailwindcss.com';
-    document.head.appendChild(tw);
-  })();
-</script>
 
 <script>
   (function () {
@@ -333,72 +300,99 @@
       pages.forEach(function (page) { observer.observe(page); });
     }
 
-    /* ---------- Add to cart (Dawn-compatible) ---------- */
-    var addButtons = root.querySelectorAll('[data-comparison-add-to-cart]');
+    /* ---------- Add to cart - Dawn compatible ---------- */
+var addButtons = root.querySelectorAll('[data-comparison-add-to-cart]');
 
-    function cartSectionsToFetch() {
-      var host = document.querySelector('cart-notification') || document.querySelector('cart-drawer');
-      if (host && typeof host.getSectionsToRender === 'function') {
-        return host.getSectionsToRender().map(function (s) { return s.section; });
-      }
-      return [];
-    }
+function addToCart(button) {
+  var variantId = button.getAttribute('data-variant-id');
+  if (!variantId) return;
 
-    function pushIntoDawnCart(data) {
-      var notification = document.querySelector('cart-notification');
-      var drawer = document.querySelector('cart-drawer');
+  var labelEl = button.querySelector('[data-btn-label]');
+  var originalLabel = labelEl ? labelEl.textContent : '';
 
-      if (notification && typeof notification.renderContents === 'function') {
-        notification.renderContents(data);
-        return;
-      }
-      if (drawer && typeof drawer.renderContents === 'function') {
-        drawer.renderContents(data);
-        if (typeof drawer.open === 'function') drawer.open();
-        return;
-      }
-      document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-    }
+  button.disabled = true;
 
-    function addToCart(button) {
-      var variantId = button.getAttribute('data-variant-id');
-      if (!variantId) return;
+  if (labelEl) {
+    labelEl.textContent = 'Adding...';
+  }
 
-      var labelEl = button.querySelector('[data-btn-label]');
-      var originalLabel = labelEl ? labelEl.textContent : '';
-      button.disabled = true;
-      if (labelEl) labelEl.textContent = 'Adding...';
+  var cartDrawer = document.querySelector('cart-drawer');
 
-      var cartAddUrl = (window.routes && window.routes.cart_add_url) ? window.routes.cart_add_url : '/cart/add';
+  // Get Dawn's required section IDs
+  var sections = [];
 
-      fetch(cartAddUrl + '.js', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          items: [{ id: variantId, quantity: 1 }],
-          sections: cartSectionsToFetch(),
-          sections_url: window.location.pathname
-        })
-      })
-        .then(function (res) { return res.json(); })
-        .then(function (data) {
-          if (data.status) {
-            throw new Error(data.description || 'Could not add item to cart');
-          }
-          pushIntoDawnCart(data);
-        })
-        .catch(function (err) {
-          console.error('[Comparison Table] add to cart failed:', err);
-        })
-        .finally(function () {
-          button.disabled = false;
-          if (labelEl) labelEl.textContent = originalLabel;
+  if (cartDrawer && typeof cartDrawer.getSectionsToRender === 'function') {
+    sections = cartDrawer
+      .getSectionsToRender()
+      .map(function (section) {
+        return section.id;
+      });
+  }
+
+  fetch(window.Shopify.routes.root + 'cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      items: [
+        {
+          id: Number(variantId),
+          quantity: 1
+        }
+      ],
+      sections: sections,
+      sections_url: window.location.pathname
+    })
+  })
+    .then(function (response) {
+      if (!response.ok) {
+        return response.json().then(function (error) {
+          throw new Error(
+            error.description || 'Could not add item to cart'
+          );
         });
-    }
+      }
 
-    addButtons.forEach(function (btn) {
-      btn.addEventListener('click', function () { addToCart(btn); });
+      return response.json();
+    })
+    .then(function (data) {
+      console.log('Cart add response:', data);
+
+      if (!cartDrawer) {
+        console.warn('Dawn cart-drawer element not found.');
+        return;
+      }
+
+      if (typeof cartDrawer.renderContents === 'function') {
+        cartDrawer.renderContents(data);
+      }
+
+      if (typeof cartDrawer.open === 'function') {
+        cartDrawer.open(button);
+      }
+    })
+    .catch(function (error) {
+      console.error(
+        '[Comparison Table] Add to cart failed:',
+        error
+      );
+    })
+    .finally(function () {
+      button.disabled = false;
+
+      if (labelEl) {
+        labelEl.textContent = originalLabel;
+      }
     });
+}
+
+addButtons.forEach(function (button) {
+  button.addEventListener('click', function () {
+    addToCart(button);
+  });
+});
   })();
 </script>
 

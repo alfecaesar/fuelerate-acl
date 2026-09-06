@@ -9,14 +9,14 @@
     }
   </style>
 <div id="benefits-{{ section.id }}" class="benefits-tab-slider">
-  <div class="tw-mx-auto tw-max-w-[1280px] tw-px-6 tw-py-12 md:tw-py-16">
+  <div class="tw-mx-auto tw-max-w-[1440px] tw-px-6 tw-pt-[20px] tw-pb-[20px] md:tw-pt-[85px] md:tw-pb-[25px]">
 
     {% comment %} mobile only heading + subheading {% endcomment %}
     <div class="tw-block md:tw-hidden">
-      <h2 class="tw-font-serif tw-text-4xl tw-leading-tight tw-mb-4 tw-text-center" style="color: {{ section.settings.heading_color }};">
+      <h2 class="font-heading-family tw-text-[24px] tw-leading-[100%] tw-text-center" style="color: {{ section.settings.heading_color }};">
         {{ section.settings.heading }}
       </h2>
-      <p class="tw-text-base tw-mb-6 tw-text-center" style="color: {{ section.settings.body_color }};">
+      <p class="tw-text-[16px] tw-leading-[111%] tw-text-center" style="color: {{ section.settings.body_color }};">
         {{ section.settings.mobile_subheading }}
       </p>
     </div>
@@ -24,11 +24,11 @@
     <div class="md:tw-grid md:tw-grid-cols-12 md:tw-gap-8">
 
       {% comment %} LEFT column (desktop only): heading + subheading + pills, stacked {% endcomment %}
-      <div class="tw-hidden md:tw-flex md:tw-col-span-5 tw-flex-col tw-gap-3">
-        <h2 class="tw-font-serif tw-text-4xl lg:tw-text-5xl tw-leading-tight tw-mb-2" style="color: {{ section.settings.heading_color }};">
+      <div class="tw-hidden md:tw-flex md:tw-col-span-4 tw-flex-col tw-gap-3">
+        <h2 class="font-heading-family tw-text-[64px] tw-leading-[120%] tw-text-[#31331E] !tw-font-normal tw-w-[635px] !tw-py-0 !tw-my-0" style="color: {{ section.settings.heading_color }};">
           {{ section.settings.heading }}
         </h2>
-        <p class="tw-max-w-md tw-text-sm tw-mb-4" style="color: {{ section.settings.body_color }};">
+        <p class="tw-w-[645px] tw-text-[16px] tw-leading-[111%] tw-mb-[35px] !tw-mt-0" style="color: {{ section.settings.body_color }};">
           {{ section.settings.desktop_subheading }}
         </p>
 
@@ -37,7 +37,7 @@
             type="button"
             data-tab-trigger
             data-index="{{ forloop.index0 }}"
-            class="benefit-pill tw-flex tw-items-center tw-gap-3 tw-rounded-full tw-border tw-px-5 tw-py-3 tw-text-left tw-text-sm tw-font-medium tw-w-fit tw-transition-colors tw-duration-200 {% if forloop.first %}tw-text-white{% else %}tw-bg-white{% endif %}"
+            class="benefit-pill tw-flex tw-items-center tw-gap-3 tw-rounded-full tw-border tw-px-5 tw-py-3 tw-text-left tw-text-[16px] tw-leading-[111%] tw-w-fit tw-transition-colors tw-duration-200 {% if forloop.first %}tw-text-white{% else %}tw-bg-transparent{% endif %}"
             style="{% if forloop.first %}background-color: {{ section.settings.pill_active_bg }}; border-color: {{ section.settings.pill_active_bg }};{% else %}border-color: {{ section.settings.pill_border }}; color: {{ section.settings.pill_text }};{% endif %}"
             {{ block.shopify_attributes }}
           >
@@ -50,14 +50,14 @@
       </div>
 
       {% comment %} RIGHT column: slider — stretches to match left column's full height {% endcomment %}
-      <div class="tw-hidden md:tw-grid md:tw-col-span-7 tw-relative">
+      <div class="tw-hidden md:tw-grid md:tw-col-span-8 tw-relative">
         {% for block in section.blocks %}
           <div
             data-slide
             data-index="{{ forloop.index0 }}"
             class="benefit-slide tw-col-start-1 tw-row-start-1 tw-flex tw-items-stretch {% unless forloop.first %}tw-opacity-0 tw-pointer-events-none{% endunless %}"
           >
-            <div class="tw-w-[38%] tw-shrink-0 tw-self-end tw-aspect-[4/5] tw-overflow-hidden tw-rounded-l-2xl">
+            <div class="tw-w-[38%] tw-shrink-0 tw-self-end tw-aspect-[1/1] tw-overflow-hidden tw-rounded-[5px]">
               {% if block.settings.image != blank %}
                 <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.heading | escape }}" class="tw-h-full tw-w-full tw-object-cover">
               {% else %}
@@ -65,35 +65,36 @@
               {% endif %}
             </div>
 
-            <div class="tw-flex-1 tw-self-stretch tw-rounded-r-2xl tw-p-8 lg:tw-p-10" style="background-color: {{ section.settings.card_bg }};">
-              <h3 class="tw-font-serif tw-text-2xl lg:tw-text-3xl tw-leading-snug tw-mb-5" style="color: {{ section.settings.card_heading_color }};">
+            <div class="tw-flex tw-flex-col tw-gap-[35px] tw-self-stretch tw-rounded-r-2xl tw-py-[75px] tw-px-[105px] tw-rounded-[5px]" style="background-color: {{ section.settings.card_bg }};">
+              <h3 class="font-heading-family tw-text-[48px] tw-leading-[120%] tw-font-normal !tw-py-0 !tw-my-0" style="color: {{ section.settings.card_heading_color }};">
                 {{ block.settings.heading }}
               </h3>
 
-              <p class="tw-text-sm tw-font-semibold tw-mb-4" style="color: {{ section.settings.card_text_color }};">
+              <p class="tw-text-[16px] tw-leading-[111%] tw-font-bold !tw-py-0 !tw-my-0" style="color: {{ section.settings.card_text_color }};">
                 {{ block.settings.intro }}
               </p>
 
-              <ul class="tw-space-y-1 tw-text-sm tw-mb-6 tw-list-disc tw-pl-4" style="color: {{ section.settings.card_text_color }};">
+              <ul class="tw-list-disc tw-flex tw-flex-col tw-gap-[3px] tw-ml-[25px] !tw-py-0 !tw-my-0" style="color: {{ section.settings.card_text_color }};">
                 {% capture linebr %}{{ block.settings.bullets | newline_to_br }}{% endcapture %}
                 {% assign bullets = linebr | split: '<br />' %}
                 {% for line in bullets %}
                     {% assign line = line | strip %}
                     {% unless line == blank %}
-                    <li>{{ line }}</li>
+                    <li class="tw-text-[16px] tw-leading-[111%] tw-font-normal " style="color: {{ section.settings.card_text_color }};">
+                      {{ line }}
+                    </li>
                     {% endunless %}
                 {% endfor %}
               </ul>
 
               {% if block.settings.cta_label != blank %}
-                <div class="tw-flex tw-flex-col tw-items-center tw-text-center">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.card_text_color }}" stroke-width="1.5" class="tw-mb-2 tw-rotate-90">
-                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                    <path d="M2 2l7.586 7.586"></path>
-                    <circle cx="11" cy="11" r="2"></circle>
-                  </svg>
+                <div class="tw-flex tw-flex-col tw-gap-[5px] tw-items-center tw-text-center">
+                  <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.031 5.84496L14.406 0.219965C14.3363 0.150233 14.2536 0.0949133 14.1626 0.05717C14.0715 0.0194268 13.9739 0 13.8754 0C13.7768 0 13.6792 0.0194268 13.5882 0.05717C13.4971 0.0949133 13.4144 0.150233 13.3447 0.219965L1.22944 12.3353C0.442242 13.1225 0 14.1901 0 15.3034C0 16.4167 0.442242 17.4843 1.22944 18.2715C2.01663 19.0587 3.0843 19.501 4.19756 19.501C5.31083 19.501 6.37849 19.0587 7.16569 18.2715L17.6554 7.78184L19.7376 7.08809C19.8589 7.04772 19.968 6.97699 20.0543 6.8826C20.1406 6.78822 20.2014 6.67333 20.2308 6.54885C20.2602 6.42437 20.2573 6.29443 20.2223 6.1714C20.1873 6.04836 20.1215 5.93631 20.031 5.8459V5.84496ZM6.10444 17.2103C5.59558 17.7007 4.91456 17.9718 4.20787 17.9653C3.50118 17.9588 2.82527 17.6751 2.32555 17.1754C1.82582 16.6757 1.54219 15.9998 1.53567 15.2931C1.52916 14.5864 1.80026 13.9054 2.29069 13.3965L4.99069 10.6965C5.78475 10.4247 7.02975 10.3215 8.6535 11.1653C9.64725 11.6847 10.5454 11.9153 11.331 11.9837L6.10444 17.2103ZM17.0132 6.41403C16.9027 6.45074 16.8022 6.51269 16.7197 6.59497L13.0101 10.3047C12.216 10.5765 10.971 10.6797 9.34725 9.8359C8.3535 9.31653 7.45537 9.0859 6.66975 9.01747L13.8754 1.8109L18.1119 6.04747L17.0132 6.41403Z" fill="white"/>
+                </svg>
+
                   {% if block.settings.cta_url != blank %}
-                    <a href="{{ block.settings.cta_url }}" class="tw-text-sm tw-font-bold tw-underline-offset-2 hover:tw-underline" style="color: {{ section.settings.card_text_color }};">
+                    <a href="{{ block.settings.cta_url }}" class="tw-text-[16px] tw-leading-[111%] tw-underline-offset-2 hover:tw-underline" style="color: {{ section.settings.card_text_color }};">
                       {{ block.settings.cta_label }}
                     </a>
                   {% else %}
@@ -105,11 +106,17 @@
           </div>
         {% endfor %}
 
-        <button type="button" data-prev aria-label="Previous" class="tw-absolute tw-bottom-10 tw--left-5 tw-z-20 tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-full tw-bg-white tw-shadow-md">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <button type="button" data-prev aria-label="Previous" class="tw-absolute tw-bottom-20 tw-left-[-20px] tw-z-20 tw-flex tw-h-[50px] tw-w-[50px] tw-items-center tw-justify-center tw-rounded-full tw-bg-white tw-shadow-md tw-border-0 tw-cursor-pointer">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.3336 19.8333C16.0242 19.8333 15.7275 19.7103 15.5087 19.4915L10.8421 14.8248C10.6234 14.6061 10.5005 14.3094 10.5005 14C10.5005 13.6907 10.6234 13.394 10.8421 13.1752L15.5087 8.50851C15.6164 8.39708 15.7451 8.30821 15.8874 8.24706C16.0298 8.18592 16.1829 8.15373 16.3378 8.15239C16.4927 8.15104 16.6463 8.18056 16.7897 8.23922C16.9331 8.29788 17.0633 8.38451 17.1729 8.49405C17.2824 8.60359 17.369 8.73385 17.4277 8.87723C17.4864 9.02061 17.5159 9.17424 17.5145 9.32915C17.5132 9.48406 17.481 9.63715 17.4199 9.77948C17.3587 9.92182 17.2698 10.0506 17.1584 10.1582L13.3166 14L17.1584 17.8418C17.3215 18.005 17.4326 18.2129 17.4776 18.4391C17.5226 18.6654 17.4995 18.9 17.4112 19.1131C17.3229 19.3263 17.1734 19.5084 16.9816 19.6366C16.7898 19.7648 16.5643 19.8333 16.3336 19.8333Z" fill="#31331E"/>
+</svg>
+
         </button>
-        <button type="button" data-next aria-label="Next" class="tw-absolute tw-bottom-10 tw--right-5 tw-z-20 tw-flex tw-h-10 tw-w-10 tw-items-center tw-justify-center tw-rounded-full tw-bg-white tw-shadow-md">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <button type="button" data-next aria-label="Next" class="tw-absolute tw-bottom-20 tw-right-[-20px] tw-z-20 tw-flex tw-h-[50px] tw-w-[50px] tw-items-center tw-justify-center tw-rounded-full tw-bg-white tw-shadow-md tw-border-0 tw-cursor-pointer">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.6669 8.16665C11.9763 8.16672 12.273 8.28968 12.4917 8.50849L17.1584 13.1752C17.3771 13.3939 17.5 13.6906 17.5 14C17.5 14.3093 17.3771 14.606 17.1584 14.8248L12.4917 19.4915C12.3841 19.6029 12.2554 19.6918 12.1131 19.7529C11.9707 19.8141 11.8176 19.8463 11.6627 19.8476C11.5078 19.849 11.3542 19.8194 11.2108 19.7608C11.0674 19.7021 10.9372 19.6155 10.8276 19.5059C10.7181 19.3964 10.6315 19.2661 10.5728 19.1228C10.5141 18.9794 10.4846 18.8258 10.486 18.6709C10.4873 18.5159 10.5195 18.3629 10.5806 18.2205C10.6418 18.0782 10.7307 17.9494 10.8421 17.8418L14.6839 14L10.8421 10.1582C10.679 9.99499 10.5679 9.78714 10.5229 9.56086C10.4779 9.33458 10.501 9.10004 10.5893 8.88689C10.6776 8.67374 10.8271 8.49155 11.0189 8.36335C11.2107 8.23515 11.4362 8.1667 11.6669 8.16665Z" fill="#31331E"/>
+</svg>
+
         </button>
       </div>
 
@@ -119,21 +126,21 @@
           <details class="benefit-accordion tw-group tw-rounded-2xl tw-overflow-hidden" {% if forloop.first %}open{% endif %}>
             <summary
               class="tw-flex tw-cursor-pointer tw-items-center tw-gap-3 tw-rounded-full tw-border tw-px-5 tw-py-3 tw-text-sm tw-font-medium tw-w-fit group-open:tw-text-white"
-              style="{% if forloop.first %}background-color: {{ section.settings.pill_active_bg }}; border-color: {{ section.settings.pill_active_bg }}; color: #fff;{% else %}border-color: {{ section.settings.pill_border }}; color: {{ section.settings.pill_text }};{% endif %}"
+              style="{% if forloop.first %}background-color: {{ section.settings.pill_active_bg }}; border-color: #31331e; color: #fff;{% else %}border-color: #31331e; color: {{ section.settings.pill_text }};{% endif %}border-width: 1px; border-style: solid;"
               {{ block.shopify_attributes }}
             >
               {% if block.settings.icon != blank %}
                 <img src="{{ block.settings.icon | image_url: width: 40 }}" width="20" height="20" alt="" class="tw-shrink-0" style="{% if forloop.first %}filter: brightness(0) invert(1);{% endif %}">
               {% endif %}
-              <span>{{ block.settings.label }}</span>
+              <span class="tw-text-[16px] tw-leading-[111%]">{{ block.settings.label }}</span>
             </summary>
 
             <div class="tw-mt-3 tw-rounded-2xl tw-p-6" style="background-color: {{ section.settings.card_bg }};">
-              <h3 class="tw-font-serif tw-text-xl tw-leading-snug tw-mb-4" style="color: {{ section.settings.card_heading_color }};">
+              <h3 class="font-heading-family tw-text-[24px] tw-leading-[111%] tw-mb-18" style="color: {{ section.settings.card_heading_color }};">
                 {{ block.settings.heading }}
               </h3>
 
-              <p class="tw-text-sm tw-font-semibold tw-mb-3" style="color: {{ section.settings.card_text_color }};">
+              <p class="tw-text-[16px] tw-leading-[111%] tw-font-semibold tw-mb-18" style="color: {{ section.settings.card_text_color }};">
                 {{ block.settings.intro }}
               </p>
 
@@ -143,22 +150,21 @@
                 {% for line in bullets %}
                     {% assign line = line | strip %}
                     {% unless line == blank %}
-                    <li>{{ line }}</li>
+                    <li class="tw-text-[16px] tw-leading-[111%] tw-ml-[15px]" style="color: {{ section.settings.card_text_color }};">{{ line }}</li>
                     {% endunless %}
                 {% endfor %}
               </ul>
 
               {% if block.settings.cta_label != blank %}
                 <div class="tw-flex tw-flex-col tw-items-center tw-text-center">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{ section.settings.card_text_color }}" stroke-width="1.5" class="tw-mb-2 tw-rotate-90">
-                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                    <path d="M2 2l7.586 7.586"></path>
-                    <circle cx="11" cy="11" r="2"></circle>
-                  </svg>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.2805 8.09448L16.6555 2.46948C16.5859 2.39974 16.5031 2.34442 16.4121 2.30668C16.321 2.26894 16.2234 2.24951 16.1249 2.24951C16.0263 2.24951 15.9287 2.26894 15.8377 2.30668C15.7466 2.34442 15.6639 2.39974 15.5943 2.46948L3.47895 14.5848C2.69175 15.372 2.24951 16.4397 2.24951 17.5529C2.24951 18.6662 2.69175 19.7338 3.47895 20.521C4.26615 21.3082 5.33381 21.7505 6.44707 21.7505C7.56034 21.7505 8.628 21.3082 9.4152 20.521L19.9049 10.0314L21.9871 9.3376C22.1084 9.29723 22.2175 9.2265 22.3038 9.13211C22.3901 9.03773 22.4509 8.92284 22.4803 8.79836C22.5097 8.67388 22.5068 8.54394 22.4718 8.42091C22.4368 8.29787 22.371 8.18583 22.2805 8.09541V8.09448ZM8.35395 19.4598C7.84509 19.9502 7.16407 20.2213 6.45738 20.2148C5.75069 20.2083 5.07479 19.9247 4.57506 19.4249C4.07533 18.9252 3.7917 18.2493 3.78519 17.5426C3.77867 16.8359 4.04978 16.1549 4.5402 15.646L7.2402 12.946C8.03426 12.6742 9.27926 12.571 10.903 13.4148C11.8968 13.9342 12.7949 14.1648 13.5805 14.2332L8.35395 19.4598ZM19.2627 8.66354C19.1522 8.70025 19.0517 8.7622 18.9693 8.84448L15.2596 12.5542C14.4655 12.826 13.2205 12.9292 11.5968 12.0854C10.603 11.566 9.70489 11.3354 8.91926 11.267L16.1249 4.06041L20.3615 8.29698L19.2627 8.66354Z" fill="white"/>
+</svg>
+
                   {% if block.settings.cta_url != blank %}
-                    <a href="{{ block.settings.cta_url }}" class="tw-text-sm tw-font-bold" style="color: {{ section.settings.card_text_color }};">{{ block.settings.cta_label }}</a>
+                    <a href="{{ block.settings.cta_url }}" class="tw-text-[16px] tw-leading-[111%] tw-font-bold tw-no-underline" style="color: {{ section.settings.card_text_color }};">{{ block.settings.cta_label }}</a>
                   {% else %}
-                    <span class="tw-text-sm tw-font-bold" style="color: {{ section.settings.card_text_color }};">{{ block.settings.cta_label }}</span>
+                    <span class="tw-text-[16px] tw-leading-[111%] tw-font-bold" style="color: {{ section.settings.card_text_color }};">{{ block.settings.cta_label }}</span>
                   {% endif %}
                 </div>
               {% endif %}
@@ -199,7 +205,7 @@
         pill.style.color = '#fff';
         if (icon) icon.style.filter = 'brightness(0) invert(1)';
       } else {
-        pill.style.backgroundColor = '#fff';
+        pill.style.backgroundColor = 'transparent';
         pill.style.borderColor = pillBorder;
         pill.style.color = pillText;
         if (icon) icon.style.filter = 'none';

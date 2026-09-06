@@ -1,6 +1,6 @@
 {% if block.settings.label != blank and block.settings.list_metafield != blank %}
     <div class="tw-flex tw-flex-col tw-gap-[20px] tw-py-[30px] tw-border-0 tw-border-t-[1px] tw-border-b-[1px] tw-border-[#000] tw-border-solid ">
-        <h3 class="font-heading-family tw-text-[24px] tw-font-normal tw-leading-[120%] tw-text-[#31331E] tw-my-0">{{ block.settings.label }}</h3>
+        <h3 class="tw-text-center md:tw-text-left font-heading-family tw-text-[24px] tw-font-normal tw-leading-[120%] tw-text-[#31331E] tw-my-0">{{ block.settings.label }}</h3>
         <div class="tw-w-full tw-overflow-x-auto">
             <ul class="tw-flex tw-flex-nowrap tw-gap-[28px] tw-p-0 tw-m-0 tw-max-w-[582px] tw-w-[100%] tw-justify-between">
                 {% assign item_data = block.settings.list_metafield | remove: 'custom.' %}
